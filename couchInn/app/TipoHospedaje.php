@@ -4,12 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class TipoHospedaje extends Model
 {
-    protected  $table ="categories";
+    protected  $table ="tipoHospedaje";
     protected  $fillable =['name'];
 
     public function hospedajes (){
         return $this->hasMany('App\Hospedaje');
     }
 }
+
