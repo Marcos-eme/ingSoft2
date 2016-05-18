@@ -16,8 +16,8 @@ class AddUsuarioTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('apellido');
-            $table->integer('telefono');
-            $table->string('foto');
+            $table->integer('telefono')->nullable();
+            $table->string('foto')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();

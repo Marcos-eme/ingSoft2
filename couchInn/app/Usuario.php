@@ -12,8 +12,7 @@ class Usuario extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
-    ];
+        'nombre', 'email', 'password','apellido','foto','telefono'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -26,5 +25,9 @@ class Usuario extends Authenticatable
 
     public function hospedajes (){
         return $this->hasMany('App\Hospedaje');
+    }
+
+    public function roles (){
+        return $this->belongsToMany('App\Rol');
     }
 }

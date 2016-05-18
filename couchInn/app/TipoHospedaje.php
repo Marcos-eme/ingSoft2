@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TipoHospedaje extends Model
 {
     protected  $table ="tipoHospedaje";
-    protected  $fillable =['name'];
+    protected  $fillable =['tipo'];
 
     public function hospedajes (){
         return $this->hasMany('App\Hospedaje');
