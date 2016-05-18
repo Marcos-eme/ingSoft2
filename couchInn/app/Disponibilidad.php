@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Imagen extends Model
+class Disponibilidad extends Model
 {
-    protected  $table ="imagen";
-    protected  $fillable =['nombre','hospedaje_id'];
+    protected  $table ="disponibilidad";
+    protected  $fillable =['fechaInicio','fechaFin','hospedaje_id'];
 
     public function hospedaje(){
         return $this->belongsTo('App\Hospedaje');

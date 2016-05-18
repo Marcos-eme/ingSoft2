@@ -15,7 +15,7 @@ class AddDenunciaTable extends Migration
         Schema::create('denuncia', function (Blueprint $table) {
             $table->increments('id');
             $table->enum('tipo',['Inapropiado','Es spam','Es discriminador','Otro']);
-            $table->text('descripcion');
+            $table->text('descripcion')->nullable();
 
             $table->integer('usuario_id')->unsigned();
             $table->integer('hospedaje_id')->unsigned();

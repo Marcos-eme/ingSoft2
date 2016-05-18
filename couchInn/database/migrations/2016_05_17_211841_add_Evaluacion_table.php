@@ -14,7 +14,7 @@ class AddEvaluacionTable extends Migration
     {
         Schema::create('evaluacion', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('comentario');
+            $table->text('comentario')->nullable();
             $table->integer('puntuacion');
 
             $table->integer('usuario_id')->unsigned();

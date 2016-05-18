@@ -22,11 +22,11 @@ class AddHospedajeTable extends Migration
             $table->integer('capacidad');
             $table->text('descripcion');
             //no obligatorios
-            $table->boolean('wifi');
-            $table->boolean('cable');
-            $table->integer('baños');
-            $table->integer('habitaciones');
-            $table->string('tipoCama');
+            $table->boolean('wifi')->default(false);
+            $table->boolean('cable')->default(false);
+            $table->integer('baños')->nullable();
+            $table->integer('habitaciones')->nullable();
+            $table->string('tipoCama')->nullable();
             $table->enum('tipoHabitacion',['compartido','privado'])->default('privado');
 
 

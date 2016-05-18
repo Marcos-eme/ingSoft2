@@ -14,7 +14,7 @@ class AddImagenTable extends Migration
     {
         Schema::create('imagen', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
+            $table->string('nombre')->nullable();
             $table->integer('hospedaje_id')->unsigned();
             $table->foreign('hospedaje_id')->references('id')->on('hospedaje')->onDelete('cascade');
             $table->timestamps();
