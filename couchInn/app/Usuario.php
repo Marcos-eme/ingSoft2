@@ -2,23 +2,13 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class Usuario extends Authenticatable
+class Usuario extends Model
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    protected $table = 'usuario';
     protected $fillable = [
         'nombre', 'email', 'password','apellido','foto','telefono'];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
@@ -28,6 +18,6 @@ class Usuario extends Authenticatable
     }
 
     public function roles (){
-        return $this->belongsToMany('App\Rol');
+        return $this->belongsToMany('App\Rol')->withTimestamps();
     }
 }

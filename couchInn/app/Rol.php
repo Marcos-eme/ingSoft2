@@ -10,6 +10,6 @@ class Rol extends Model
     protected  $fillable =['rol'];
 
     public function usuarios (){
-        return $this->belongsToMany('App\Usuario');
+        return $this->belongsToMany('App\Usuario')->withTimestamps();
     }
 }
