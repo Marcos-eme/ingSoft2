@@ -2,6 +2,7 @@
   <dictionary name="Fer">
     <words>
       <w>aceptada</w>
+      <w>administrador</w>
       <w>apellido</w>
       <w>baños</w>
       <w>calle</w>
@@ -10,10 +11,14 @@
       <w>ciudad</w>
       <w>comentario</w>
       <w>compartido</w>
+      <w>contenido</w>
+      <w>controlador</w>
+      <w>couchinn</w>
       <w>couchinndb</w>
       <w>denuncia</w>
       <w>denuncias</w>
       <w>descripcion</w>
+      <w>discriminador</w>
       <w>disponibilidad</w>
       <w>disponibilidades</w>
       <w>estado</w>
@@ -29,21 +34,27 @@
       <w>hospedajes</w>
       <w>imagen</w>
       <w>imagenes</w>
+      <w>inapropiado</w>
       <w>inicio</w>
       <w>nombre</w>
       <w>notificar</w>
       <w>numero</w>
+      <w>otro</w>
+      <w>partes</w>
       <w>pendiente</w>
       <w>pregunta</w>
       <w>preguntas</w>
       <w>privado</w>
       <w>provincia</w>
+      <w>prueba</w>
       <w>puntuacion</w>
       <w>rechazada</w>
       <w>reserva</w>
       <w>reservas</w>
+      <w>seccion</w>
       <w>telefono</w>
       <w>tipo</w>
+      <w>titulo</w>
       <w>usuario</w>
       <w>usuarios</w>
     </words>

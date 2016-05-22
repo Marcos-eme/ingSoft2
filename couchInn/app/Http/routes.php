@@ -11,6 +11,40 @@
 |
 */
 
+/*
+
+POSIBLES tipos de rutas
+
+GET , POST , PUT , DELETE , RESOURCE
+
+*/
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::group(['prefix'=> 'admin'],function(){
+    Route::resource('usuario','UsuariosControlador@index');
+});
+
+
+
+
+
+
+
+/*
+Route::get('hospedaje/{hospedaje_id?}', function($hospedaje_id = 0) {
+	if($hospedaje_id == 0)
+	echo "Esta es la seccion de hospedajes";
+	else
+	echo "Esta es la seccion del hospedaje : "  . $hospedaje_id;
+});
+
+
+
+Route::get('usuarios/{id}',[
+    'uses'=>'TestController@view'
+]);
+*/

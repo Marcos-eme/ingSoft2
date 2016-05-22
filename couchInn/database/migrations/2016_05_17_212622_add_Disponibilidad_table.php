@@ -14,8 +14,8 @@ class AddDisponibilidadTable extends Migration
     {
         Schema::create('disponibilidad', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('fechaInicio');
-            $table->date('fechaFin');
+            $table->date('fecha_inicio');
+            $table->date('fecha_fin');
 
             $table->integer('hospedaje_id')->unsigned();
             $table->foreign('hospedaje_id')->references('id')->on('hospedaje')->onDelete('cascade');
