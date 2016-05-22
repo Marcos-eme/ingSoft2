@@ -11,8 +11,8 @@ class UsuariosControlador extends Controller
     public function index($id){
 
     }
-    public function create($id){
-
+    public function create(){
+        return view('admin.template.Usuarios.crear');
     }
     public function store($id){
 
@@ -20,11 +20,9 @@ class UsuariosControlador extends Controller
     public function show($id){
 
     }
-
     public function edit($id){
 
     }
-
     public function update(Request $request, $id){
 
     }
