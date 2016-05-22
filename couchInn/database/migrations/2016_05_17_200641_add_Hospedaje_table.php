@@ -26,14 +26,14 @@ class AddHospedajeTable extends Migration
             $table->boolean('cable')->default(false);
             $table->integer('baños')->nullable();
             $table->integer('habitaciones')->nullable();
-            $table->string('tipoCama')->nullable();
-            $table->enum('tipoHabitacion',['compartido','privado'])->default('privado');
+            $table->string('tipo_cama')->nullable();
+            $table->enum('tipo_habitacion',['compartido','privado'])->default('privado');
 
 
             $table->integer('usuario_id')->unsigned();
-            $table->integer('tipoHospedaje_id')->unsigned();
+            $table->integer('tipo_hospedaje_id')->unsigned();
             $table->foreign('usuario_id')->references('id')->on('usuario')->onDelete('cascade');
-            $table->foreign('tipoHospedaje_id')->references('id')->on('tipoHospedaje')->onDelete('cascade');
+            $table->foreign('tipo_hospedaje_id')->references('id')->on('tipo_hospedaje')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -156,6 +156,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+        * otros providers que te dice codigofacilito:
+        */
+        App\Providers\AnnotationsServiceProvider::class,
+        Cviebrock\EloquentSluggable\SluggableServiceProvider::class
     ],
 
     /*

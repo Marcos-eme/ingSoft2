@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddImagenTable extends Migration
+class AddTipoHospedajeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,10 @@ class AddImagenTable extends Migration
      */
     public function up()
     {
-        Schema::create('imagenes', function (Blueprint $table) {
+        Schema::create('tipo_hospedaje', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre', 50);
+            $table->string('tipo');
             $table->timestamps();
-
-
-            //una imagen le pertenece SOLO a un hospedaje
-            $table->integer('hospedaje_id')->unsigned();
-            $table->foreign('hospedaje_id')->references('id')->on('hospedajes');
         });
     }
 
@@ -31,6 +26,6 @@ class AddImagenTable extends Migration
      */
     public function down()
     {
-        Schema::drop('imagenes');
+        Schema::drop('tipo_hospedaje');
     }
 }

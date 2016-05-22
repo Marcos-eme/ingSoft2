@@ -14,8 +14,8 @@ class AddReservaTable extends Migration
     {
         Schema::create('reserva', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('fechaInicio');
-            $table->date('fechaFin');
+            $table->date('fecha_inicio');
+            $table->date('fecha_fin');
             $table->enum('estado',['Aceptada','Rechazada','Pendiente','Finalizada','SinNotificar']);
 
             $table->integer('usuario_id')->unsigned();
