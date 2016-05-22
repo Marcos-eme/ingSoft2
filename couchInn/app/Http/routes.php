@@ -25,7 +25,7 @@ Route::get('/', function () {
 
 
 Route::group(['prefix'=> 'admin'],function(){
-    Route::resource('usuario','UsuariosControlador@index');
+    Route::resource('usuario','UsuariosControlador');
 });
 
 
