@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TipoHospedaje extends Model
+class Tipo_hospedaje extends Model
 {
-    protected  $table ="tipoHospedaje";
+    protected  $table ="tipo_hospedaje";
     protected  $fillable =['tipo'];
 
     public function hospedajes (){
