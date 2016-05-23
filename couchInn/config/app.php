@@ -159,6 +159,7 @@ return [
         /*
         * otros providers que te dice codigofacilito:
         */
+        Collective\Html\HtmlServiceProvider::class,
         App\Providers\AnnotationsServiceProvider::class,
         Cviebrock\EloquentSluggable\SluggableServiceProvider::class
     ],
@@ -206,7 +207,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        /*
+         * aliases personales vieja
+         * */
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
     ],
 
 ];

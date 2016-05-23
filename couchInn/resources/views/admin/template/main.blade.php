@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>@yield('titulo','FaltaTituloVieja') </title>
+    <title>@yield('titulo_pestaña') </title>
     <link rel="stylesheet" href="{{asset('Bootstrap/css/bootstrap.css')}}">
 
 </head>
