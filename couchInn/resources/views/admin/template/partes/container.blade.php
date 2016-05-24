@@ -9,6 +9,7 @@
             <div class="row">
                 <div class="panel panel-info">
                     <div class="panel-body">
+                        @include('flash::message')
                         @yield('contenido_container')
                     </div>
                 </div>
