@@ -3,7 +3,9 @@
 @section('titulo_pestaña','EditarUsuario')
 
 @section('contenido_container')
-    {!! Form::open(array('route'=> array('admin.usuario.update', $usuario),'method'=>'put')) !!}
+
+    @include('admin.template.partes.errores')
+    {!! Form::open(['route'=> ['admin.usuario.update', $usuario ],'method'=>'PUT' ]) !!}
     <div class="form-group">
         {!! Form::label('nombre','Nombre:')!!}
         {!! Form::text('nombre',$usuario->nombre,['class'=>'form-control','placeholder'=>'Ingresa el nombre','required']) !!}

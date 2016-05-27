@@ -1,5 +1,5 @@
 @extends('admin.template.main')
-@section('titulo_container','ListaUsuarios')
+@section('titulo_container','Lista Usuarios')
 @section('titulo_pestaña','Miembros')
 
 @section('contenido_container')
@@ -28,6 +28,7 @@
             @endforeach
         </tbody>
     </table>
+    <!-- ESTO ES PARA RENDERIZAR LA PAGINACION QUE SE ESCRIBIO EN EL CONTROLADOR DE LA PAGINA SINO NO FUNCIONA LA PAGINACION...-->
     {!! $usuarios->render() !!}
 <br>
     <a href="{{route('admin.usuario.create')}}" class="btn btn-info">Registrar nuevo usuario</a>

@@ -3,6 +3,7 @@
 @section('titulo_pestaña','UsuarioNew')
 
 @section('contenido_container')
+
     {!! Form::open(['route'=>'admin.usuario.store','method'=>'POST']) !!}
         <div class="form-group">
             <!-- EN LA CLASE FORM agrega como primer parametro el "id"
