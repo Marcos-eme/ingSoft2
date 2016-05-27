@@ -6,18 +6,19 @@ use Illuminate\Http\Request;
 use App\Usuario;
 use App\Http\Requests;
 use Laracasts\Flash\Flash;
+use App\Http\Requests\UsuarioRequest;
 
 class UsuariosControlador extends Controller
 {
     public function index(){
         $usuarios= Usuario::orderBy('id','ASC')->paginate(5);
-        return view('admin.template.Usuarios.index')->with('usuarios',$usuarios);
+        return view('admin.Usuarios.index')->with('usuarios',$usuarios);
     }
     public function create(){
-        return view('admin.template.Usuarios.crear');
+        return view('admin.Usuarios.crear');
 
     }
-    public function store(Request $request){
+    public function store(UsuarioRequest $request){
         $usuario=new Usuario($request->all());
         $usuario->password = bcrypt($request->password);
         Flash::success('se ha guardado con exito');
@@ -29,12 +30,20 @@ class UsuariosControlador extends Controller
     }
     public function edit($id){
         $usuario=Usuario::find($id);
-        return view('admin.template.Usuarios.edit')->with('usuario', $usuario);
+        return view('admin.Usuarios.edit')->with('usuario', $usuario);
 
     }
-    public function update(Request $request, $id){
-        
-        dd($id);
+    public function update(UsuarioRequest $request, $id){
+        $usuario= Usuario::find($id);
+        $usuario->nombre=$request->nombre;
+        $usuario->apellido=$request->apellido;
+        $usuario->password=bcrypt($request->password);
+        $usuario->email=$request->email;
+        $usuario->telefono=$request->telefono;
+        $usuario->foto=$request->foto;
+        $usuario->save();
+        Flash::success('El usuario: '.$usuario->nombre.' '.$usuario->apellido.' se ha editado con exito');
+        return redirect()->route('admin.usuario.index');
     }
     public function destroy($id){
         $usuario = Usuario::find($id);

@@ -26,7 +26,13 @@ Route::get('/', function () {
 
 Route::group(['prefix'=> 'admin'],function(){
     Route::resource('usuario','UsuariosControlador');
+    Route::resource('tipo_hospedaje','Tipo_HospedajeControlador');
 
+
+    Route::get('tipo_hospedaje/{id}/destroy',[
+        'uses'=>'Tipo_HospedajeControlador@destroy',
+        'as'=>'admin.tipo_hospedaje.destroy'
+    ]);
     Route::get('usuario/{id}/destroy',[
         'uses'=>'UsuariosControlador@destroy',
         'as'=>'admin.usuario.destroy'
@@ -37,7 +43,11 @@ Route::group(['prefix'=> 'admin'],function(){
         'as'=>'admin.usuario.update'
     ]);*/
 });
-
+/*
+Route::get('auth/login', 'Auth/AuthController@getLogin' );
+Route::get('auth/login', 'Auth/AuthController@postLogin' );
+Route::get('auth/logout', 'Auth/AuthController@getLogout' );
+*/
 
 
 

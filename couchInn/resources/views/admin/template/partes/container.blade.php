@@ -10,6 +10,7 @@
                 <div class="panel panel-info">
                     <div class="panel-body">
                         @include('flash::message')
+                        @include('admin.template.partes.errores')
                         @yield('contenido_container')
                     </div>
                 </div>
