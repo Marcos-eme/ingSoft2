@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
 
 class Tipo_hospedajeRequest extends Request
 {
@@ -24,7 +23,7 @@ class Tipo_hospedajeRequest extends Request
     public function rules()
     {
         return [
-            'tipo'=>'max:100|required|unique:tipo_hospedaje'
+            'tipo'=>'max:100|required'
         ];
     }
 }

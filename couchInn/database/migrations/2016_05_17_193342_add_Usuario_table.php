@@ -22,6 +22,9 @@ class AddUsuarioTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->integer('rol_id')->unsigned();
+            $table->foreign('rol_id')->references('id')->on('rol')->onDelete('cascade');
         });
     }
 
