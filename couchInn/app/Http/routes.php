@@ -24,6 +24,7 @@ Route::get('/', function () {
 });
 
 
+Route::auth();
 Route::group(['prefix'=> 'admin'],function(){
     Route::resource('usuario','UsuariosControlador');
     Route::resource('tipo_hospedaje','Tipo_HospedajeControlador');
@@ -38,33 +39,18 @@ Route::group(['prefix'=> 'admin'],function(){
         'as'=>'admin.usuario.destroy'
     ]);
 
-    /*Route::put('usuario/{usuario}',[
-        'uses'=>'UsuariosControlador@update',
-        'as'=>'admin.usuario.update'
-    ]);*/
+    Route::get('/',['as'=>'admin.index',function(){
+        return view('admin.index');
+    }]);
 });
+
+
 /*
 Route::get('auth/login', 'Auth/AuthController@getLogin' );
-Route::get('auth/login', 'Auth/AuthController@postLogin' );
+Route::post('auth/login', 'Auth/AuthController@postLogin' );
 Route::get('auth/logout', 'Auth/AuthController@getLogout' );
 */
 
 
 
-
-
-
-/*
-Route::get('hospedaje/{hospedaje_id?}', function($hospedaje_id = 0) {
-	if($hospedaje_id == 0)
-	echo "Esta es la seccion de hospedajes";
-	else
-	echo "Esta es la seccion del hospedaje : "  . $hospedaje_id;
-});
-
-
-
-Route::get('usuarios/{id}',[
-    'uses'=>'TestController@view'
-]);
-*/
+//Route::get('/home', 'HomeController@index');

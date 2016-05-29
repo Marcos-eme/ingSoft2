@@ -31,6 +31,9 @@
             {!! Form::label('imagen','Imagen:')!!}
             {!! Form::file('imagen',['required']) !!}
             <br>
+            {!! Form::label('rol_id','Rol(esto es momentario hay que cambiar la manera):')!!}
+            {!! Form::number('rol_id',null,['class'=>'form-control','placeholder'=>'1=admin,2=miembro,3=golden','required']) !!}
+            <br>
             {!! Form::submit('Registrar',['class'=>'btn btn-default'])!!}
         </div>
     {!! Form::close()!!}
