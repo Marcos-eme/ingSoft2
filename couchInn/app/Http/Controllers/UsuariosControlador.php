@@ -35,12 +35,13 @@ class UsuariosControlador extends Controller
     }
     public function update(UsuarioRequest $request, $id){
         $usuario= Usuario::find($id);
-        $usuario->nombre=$request->nombre;
+        $usuario->fill($request->all());
+        /*$usuario->nombre=$request->nombre;
         $usuario->apellido=$request->apellido;
         $usuario->password=bcrypt($request->password);
         $usuario->email=$request->email;
         $usuario->telefono=$request->telefono;
-        $usuario->foto=$request->foto;
+        $usuario->foto=$request->foto;*/
         $usuario->save();
         Flash::success('El usuario: '.$usuario->nombre.' '.$usuario->apellido.' se ha editado con exito');
         return redirect()->route('admin.usuario.index');
