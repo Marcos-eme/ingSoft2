@@ -14,7 +14,7 @@ class AddTipoHospedajeTable extends Migration
     {
         Schema::create('tipo_hospedaje', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tipo');
+            $table->string('tipo')->unique();
             $table->timestamps();
         });
     }
