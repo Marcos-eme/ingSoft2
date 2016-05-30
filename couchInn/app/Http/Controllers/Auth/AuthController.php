@@ -6,7 +6,9 @@ use App\Usuario;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Validation\Validator;
+use App\Http\Requests\UsuarioRequest;
+use Laracasts\Flash\Flash;
+use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -49,10 +51,11 @@ class AuthController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+   /* protected function validator(array $data)
     {
         return Validator::make($data, [
             'nombre' => 'required|max:255',
+            'apellido' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
             'rol_id' => 'required',
@@ -65,16 +68,37 @@ class AuthController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
+    /*protected function create(array $data)
     {
         return Usuario::create([
             'nombre' => $data['nombre'],
+            'apellido' => $data['nombre'],
             'email' => $data['email'],
             'rol_id' => $data['rol_id'],
             'password' => bcrypt($data['password']),
         ]);
+    }*/
+
+    public function register(UsuarioRequest $request)
+    {
+        $usuario=new Usuario($request->all());
+        $usuario->password = bcrypt($request->password);
+        Flash::success('se ha guardado con exito');
+        $usuario->save();
+        //return Redirect::to('/');
+        return $this->login()
+            ->with('email',$usuario->email)
+            ->with('password',$usuario->password)
+            ->with('remember-me',0);
     }
 
+    public function showLogin(){
+        return view('auth.login');
+    }
+
+    public function showRegistrationForm(){
+        return view('auth.registrar');
+    }
 
     public function login()
     {
