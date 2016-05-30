@@ -18,13 +18,8 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{route('admin.usuario.index')}}">Usuarios</a></li>
                 <li><a href="{{route('admin.tipo_hospedaje.index')}}">Tipos Hospedajes</a></li>
+                <li><a href="{{route('admin.rol.index')}}">Roles</a></li>
             </ul>
-            <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Buscar">
-                </div>
-                <button type="submit" class="btn btn-default">Buscar</button>
-            </form>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::User()->nombre .'  '. Auth::User()->apellido}}<span class="caret"></span></a>
@@ -34,6 +29,11 @@
                     </ul>
                 </li>
             </ul>
+            @else
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{url('/login')}}">Iniciar Sesión</a></li>
+                    <li><a href="{{url('/register')}}">Regístrate</a></li>
+                </ul>
             @endif
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

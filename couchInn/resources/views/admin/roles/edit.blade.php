@@ -5,11 +5,11 @@
 @section('contenido_container')
 
 
-    {!! Form::open(['route'=>['admin.tipo_hospedaje.update', $tipo_hospedaje ],'method'=>'PUT']) !!}
+    {!! Form::open(['route'=>['admin.rol.update', $rol ],'method'=>'PUT']) !!}
     <div class="form-group">
 
-        {!! Form::label('tipo_hospedaje','Ingresa un tipo de hospedaje:')!!}
-        {!! Form::text('tipo',$tipo_hospedaje->tipo,['class'=>'form-control','placeholder'=>' ej: casa,departamento,duplex..','required']) !!}
+        {!! Form::label('rol','Rol:')!!}
+        {!! Form::text('rol',$rol->rol,['class'=>'form-control','placeholder'=>' ej: miembro,admin,golden,platinum..','required']) !!}
         <br>
         {!! Form::submit('Editar',['class'=>'btn btn-default'])!!}
     </div>

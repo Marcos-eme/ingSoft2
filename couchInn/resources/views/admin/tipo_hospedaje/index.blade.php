@@ -1,4 +1,4 @@
-@extends('admin.template.main')
+@extends('template.basicoAdmin.main')
 @section('titulo_container','Lista Tipos Hospedajes')
 @section('titulo_pestaña','TiposHospedajes')
 

@@ -20,14 +20,15 @@ GET , POST , PUT , DELETE , RESOURCE
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 
 Route::auth();
-Route::group(['prefix'=> 'admin'],function(){
+Route::group(['prefix'=> 'admin','middleware'=>'auth'],function(){
     Route::resource('usuario','UsuariosControlador');
     Route::resource('tipo_hospedaje','Tipo_HospedajeControlador');
+    Route::resource('rol','RolControlador');
 
 
     Route::get('tipo_hospedaje/{id}/destroy',[
@@ -37,6 +38,10 @@ Route::group(['prefix'=> 'admin'],function(){
     Route::get('usuario/{id}/destroy',[
         'uses'=>'UsuariosControlador@destroy',
         'as'=>'admin.usuario.destroy'
+    ]);
+    Route::get('rol/{id}/destroy',[
+        'uses'=>'RolControlador@destroy',
+        'as'=>'admin.rol.destroy'
     ]);
 
     Route::get('/',['as'=>'admin.index',function(){

@@ -2,7 +2,7 @@
     <section id="main">
         <div class="col-md-12">
             <div class="row">
-                <h1 class="text-center">@yield ('titulo_container','Tuhermana')</h1>
+                <h1 class="text-center">@yield ('titulo_container','')</h1>
                 <h1 class="text-center"></h1>
             </div>
             <br> <br>
@@ -10,7 +10,7 @@
                 <div class="panel panel-info">
                     <div class="panel-body">
                         @include('flash::message')
-                        @include('admin.template.partes.errores')
+                        @include('template.basicoAdmin.partes.errores')
                         @yield('contenido_container')
                     </div>
                 </div>
