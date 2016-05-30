@@ -23,7 +23,7 @@ class Tipo_hospedajeRequest extends Request
     public function rules()
     {
         return [
-            'tipo'=>'max:100|required'
+            'tipo'=>'max:100|required|unique:tipo_hospedaje'
         ];
     }
 }
