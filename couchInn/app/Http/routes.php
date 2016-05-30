@@ -25,7 +25,7 @@ Route::get('/', function () {
 
 
 Route::auth();
-Route::group(['prefix'=> 'admin','middleware'=>'auth'],function(){
+Route::group(['prefix'=> 'admin','middleware'=>['auth','admin']],function(){
     Route::resource('usuario','UsuariosControlador');
     Route::resource('tipo_hospedaje','Tipo_HospedajeControlador');
     Route::resource('rol','RolControlador');
