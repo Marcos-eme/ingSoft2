@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class UsuarioRequest extends Request
+class RolRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,7 @@ class UsuarioRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=>'min:4|max:150|required',
-            'apellido'=>'min:4|max:150|required',
-            'email'=>'min:4|max:150|required|unique:usuario',
-            'password'=>'min:4|max:150|required',
-            'telefono'=>'min:4|max:50'
+            'rol'=>'max:100|required'
         ];
     }
 }

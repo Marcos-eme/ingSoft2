@@ -17,6 +17,10 @@ class Usuario extends Authenticatable
         return $this->hasMany('App\Hospedaje');
     }
 
+    public function donaciones(){
+        return $this->hasMany('App\Donacion');
+    }
+
     public function rol (){
         return $this->belongsTo('App\Rol');
     }

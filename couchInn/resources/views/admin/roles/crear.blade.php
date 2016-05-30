@@ -4,11 +4,10 @@
 
 @section('contenido_container')
 
-    {!! Form::open(['route'=>'admin.tipo_hospedaje.store','method'=>'POST']) !!}
+    {!! Form::open(['route'=>'admin.rol.store','method'=>'POST']) !!}
     <div class="form-group">
-
-        {!! Form::label('tipo_hospedaje','Ingresa un tipo de hospedaje:')!!}
-        {!! Form::text('tipo',null,['class'=>'form-control','placeholder'=>' ej: casa,departamento,duplex..','required']) !!}
+        {!! Form::label('rol','Ingresa un rol en el sistema:')!!}
+        {!! Form::text('rol',null,['class'=>'form-control','placeholder'=>' ej: miembro,admin,golden,platinum..','required']) !!}
         <br>
         {!! Form::submit('Registrar',['class'=>'btn btn-default'])!!}
     </div>

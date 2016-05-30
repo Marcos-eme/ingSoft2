@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Usuario;
 use App\Http\Requests;
 use Laracasts\Flash\Flash;

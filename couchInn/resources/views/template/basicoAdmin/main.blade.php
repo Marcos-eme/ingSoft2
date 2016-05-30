@@ -7,9 +7,9 @@
 
 </head>
 <body>
-@include('admin.template.partes.nav')
-@include('admin.template.partes.container')
-@include('admin.template.partes.footer')
+@include('template.basicoAdmin.partes.nav')
+@include('template.basicoAdmin.partes.container')
+@include('template.basicoAdmin.partes.footer')
 
 <script src="{{asset('jquery-1.12.4.min.js')}}"></script>
 <script src="{{asset('Bootstrap/js/bootstrap.js')}}"></script>

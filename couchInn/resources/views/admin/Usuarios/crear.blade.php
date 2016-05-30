@@ -1,4 +1,4 @@
-@extends('admin.template.main')
+@extends('template.basicoAdmin.main')
 @section('titulo_container','Crear Usuario')
 @section('titulo_pestaña','UsuarioNew')
 
@@ -27,9 +27,6 @@
             <br>
             {!! Form::label('telefono','Telefono:')!!}
             {!! Form::number('telefono',null,['class'=>'form-control','placeholder'=>'ejemplo: 2213054833','required']) !!}
-            <br>
-            {!! Form::label('imagen','Imagen:')!!}
-            {!! Form::file('imagen',['required']) !!}
             <br>
             {!! Form::label('rol_id','Rol(esto es momentario hay que cambiar la manera):')!!}
             {!! Form::number('rol_id',null,['class'=>'form-control','placeholder'=>'1=admin,2=miembro,3=golden','required']) !!}

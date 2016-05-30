@@ -70,10 +70,10 @@ return [
             'model' => App\Usuario::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+         /*'users' => [
+             'driver' => 'database',
+             'table' => 'usuario',
+         ],*/
     ],
 
     /*
@@ -96,7 +96,7 @@ return [
     */
 
     'passwords' => [
-        'users' => [
+        'user' => [
             'provider' => 'users',
             'email' => 'auth.emails.password',
             'table' => 'password_resets',

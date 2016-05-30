@@ -1,10 +1,10 @@
-@extends('admin.template.main')
+@extends('template.basicoAdmin.main')
 @section('titulo_container','Editar usuario '.$usuario->nombre.' '.$usuario->apellido)
 @section('titulo_pestaña','EditarUsuario')
 
 @section('contenido_container')
 
-    @include('admin.template.partes.errores')
+    @include('template.basicoAdmin.partes.errores')
     {!! Form::open(['route'=> ['admin.usuario.update', $usuario ],'method'=>'PUT' ]) !!}
     <div class="form-group">
         {!! Form::label('nombre','Nombre:')!!}
@@ -21,9 +21,6 @@
         <br>
         {!! Form::label('telefono','Telefono:')!!}
         {!! Form::number('telefono',$usuario->telefono,['class'=>'form-control','placeholder'=>'ejemplo: 2213054833','required']) !!}
-        <br>
-        {!! Form::label('imagen','Imagen:')!!}
-        {!! Form::file('imagen',['required']) !!}
         <br>
         {!! Form::label('rol_id','Rol(esto es momentario hay que cambiar la manera):')!!}
         {!! Form::number('rol_id',$usuario->rol,['class'=>'form-control','placeholder'=>'1=admin,2=miembro,3=golden','required']) !!}
