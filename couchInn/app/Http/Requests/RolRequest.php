@@ -24,7 +24,7 @@ class RolRequest extends Request
     public function rules()
     {
         return [
-            'rol'=>'max:100|required'
+            'rol'=>'max:100|required|unique:rol'
         ];
     }
 }
