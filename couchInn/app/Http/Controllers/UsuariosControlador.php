@@ -24,9 +24,7 @@ class UsuariosControlador extends Controller
         $usuario->save();
         return redirect()->route('admin.usuario.index');
     }
-    public function show($id){
 
-    }
     public function edit($id){
         $usuario=Usuario::find($id);
         return view('admin.Usuarios.edit')->with('usuario', $usuario);
