@@ -1,6 +1,6 @@
 
 <!-- Esto es provisorio hasta que busquemos el template exacto-->
-@extends('template.basicoAdmin.main')
+@extends('template.default.main')
 @section('titulo_container','Bienvenidos a Couchinn')
 @section('titulo_pestaña','Home')
 

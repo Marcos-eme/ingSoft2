@@ -24,6 +24,10 @@ class Usuario extends Authenticatable
     public function rol (){
         return $this->belongsTo('App\Rol');
     }
+
+    public function evaluaciones(){
+        return $this->hasMany('App\Evaluacion');
+    }
 /*
  * ESTO LO COMENTE PAR PROBAR COMO SERIA CON UNA ASOCIACION 1POR PARTE USUARIO MUCHOS EN ROLESS
     public function roles (){
