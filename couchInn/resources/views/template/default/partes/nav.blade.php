@@ -26,7 +26,7 @@
                         <li><a href="{{ url('#%^#%') }}">Mis reservas</a></li>
                         <li><a href="{{ url('#$%^#%^#^#$') }}">Mis hospedajes</a></li>
                         <li><a href="{{ url('#%^#$^3#$%^#%') }}">Editar perfil</a></li>
-                        <li><a href="">Donar</a></li>
+                         <li><a href="{{ route('user.donner.donar', Auth::User()->id) }}">Donar</a></li> 
                         <li><a href="{{ url('/logout') }}">Salir</a></li>
 
                     </ul>

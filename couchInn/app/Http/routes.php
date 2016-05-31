@@ -56,6 +56,11 @@ Route::group(['prefix'=> 'user'],function(){
     Route::get('perfil/{id}/show',[
         'uses'=> 'UsuarioPerfil@show',
         'as' => 'user.perfil.show']);
+
+        Route::get('/{id}/donar',['as' => 'user.donner.donar', function(){
+        return view('donner.donar');
+    }]);
+
 });
 
 /*

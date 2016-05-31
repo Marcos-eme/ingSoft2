@@ -19,6 +19,12 @@ class UsuarioPerfil extends Controller
     {
         $usuario=Usuario::find($id);
         return view('donner.donar')->with('usuario', $usuario);
+
+    }
+
+    public function store()
+    {
+        Flash::success('Se ha donado con exito');
     }
 
 }
