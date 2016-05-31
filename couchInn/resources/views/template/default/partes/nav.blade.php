@@ -15,18 +15,21 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             @if(Auth::User())
-                <ul class="nav navbar-nav">
-                    <li><a href="{{route('admin.usuario.index')}}">Usuarios</a></li>
-                    <li><a href="{{route('admin.tipo_hospedaje.index')}}">Tipos Hospedajes</a></li>
-                    <li><a href="{{route('admin.rol.index')}}">Roles</a></li>
-                </ul>
+
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::User()->nombre .'  '. Auth::User()->apellido}}<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ url('/logout') }}">Salir</a></li>
+                    <li><a href="{{route('admin.usuario.index')}}">Conviertete en anfitrion</a></li>
+                    <a  class="dropdown-toggle btn btn-info" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::User()->nombre .'  '. Auth::User()->apellido}}<span class="caret" ></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{route('user.perfil.show',Auth::User()->id)}}">Mi perfil</a></li>
+                        <li><a href="{{ url('#$%^#%&$') }}">Mis viajes</a></li>
+                        <li><a href="{{ url('#%^#%') }}">Mis reservas</a></li>
+                        <li><a href="{{ url('#$%^#%^#^#$') }}">Mis hospedajes</a></li>
+                        <li><a href="{{ url('#%^#$^3#$%^#%') }}">Editar perfil</a></li>
+                        <li><a href="{!!return view('donner.donar')!!}">Donar</a></li>  //HACER LA RUTA
+                        <li><a href="{{ url('/logout') }}">Salir</a></li>
 
-                        </ul>
+                    </ul>
                     </li>
                 </ul>
             @else
