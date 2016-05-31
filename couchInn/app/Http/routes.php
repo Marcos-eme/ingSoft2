@@ -50,6 +50,14 @@ Route::group(['prefix'=> 'admin','middleware'=>['auth','admin']],function(){
 });
 
 
+Route::auth();
+Route::group(['prefix'=> 'user'],function(){
+
+    Route::get('perfil/{id}/show',[
+        'uses'=> 'UsuarioPerfil@show',
+        'as' => 'user.perfil.show']);
+});
+
 /*
 Route::get('auth/login', 'Auth/AuthController@getLogin' );
 Route::post('auth/login', 'Auth/AuthController@postLogin' );

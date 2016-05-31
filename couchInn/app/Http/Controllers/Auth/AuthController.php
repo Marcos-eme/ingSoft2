@@ -112,7 +112,9 @@ class AuthController extends Controller
             return Redirect::to('/')->with('success','Ingreso correctamente al sistema');
         }
         // En caso de que la autenticacion haya fallado manda un mensaje al formulario de login y tambien regresamos los valores enviados con withInput().
+        Flash::error('ESCRIBI BIEN LA CONCHA DE TU HERMANA');
         return Redirect::to('login')
+
             ->with('mensaje_error', 'Datos de acceso erroneos, Intentelo nuevamente')
             ->withInput();
     }
