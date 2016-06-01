@@ -31,11 +31,11 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
 @include('template.default.partes.nav')
-@yield('intro')
+@yield('inicio')
 @yield('anfitriones')
 @yield('como_funciona')
 @yield('mas_visitados')
-@include('template.basicoAdmin.partes.footer')
+@include('template.default.partes.footer')
 <!-- jQuery -->
 <script src="{{asset('Bootstrap/js/jquery.js')}}"></script>
 
