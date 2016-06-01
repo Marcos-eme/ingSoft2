@@ -2,6 +2,7 @@
   <dictionary name="Fer">
     <words>
       <w>aceptada</w>
+      <w>administrador</w>
       <w>apellido</w>
       <w>baños</w>
       <w>calle</w>
@@ -10,17 +11,33 @@
       <w>ciudad</w>
       <w>comentario</w>
       <w>compartido</w>
+      <w>contenido</w>
+      <w>controlador</w>
+      <w>correctamente</w>
+      <w>couchinn</w>
+      <w>couchinndb</w>
+      <w>creado</w>
+      <w>crear</w>
       <w>denuncia</w>
       <w>denuncias</w>
       <w>descripcion</w>
+      <w>discriminador</w>
       <w>disponibilidad</w>
       <w>disponibilidades</w>
+      <w>donacion</w>
+      <w>dropdown</w>
+      <w>editado</w>
+      <w>editar</w>
+      <w>errores</w>
       <w>estado</w>
       <w>evaluacion</w>
       <w>evaluaciones</w>
+      <w>exito</w>
+      <w>exitosa</w>
       <w>fecha</w>
       <w>fillable</w>
       <w>finalizada</w>
+      <w>forma</w>
       <w>foto</w>
       <w>habitacion</w>
       <w>habitaciones</w>
@@ -28,21 +45,36 @@
       <w>hospedajes</w>
       <w>imagen</w>
       <w>imagenes</w>
+      <w>inapropiado</w>
       <w>inicio</w>
+      <w>lista</w>
+      <w>miembros</w>
+      <w>navbar</w>
       <w>nombre</w>
       <w>notificar</w>
+      <w>nuevo</w>
       <w>numero</w>
+      <w>otro</w>
+      <w>pagina</w>
+      <w>partes</w>
       <w>pendiente</w>
+      <w>pestaña</w>
       <w>pregunta</w>
       <w>preguntas</w>
       <w>privado</w>
       <w>provincia</w>
+      <w>prueba</w>
       <w>puntuacion</w>
       <w>rechazada</w>
+      <w>registrado</w>
       <w>reserva</w>
       <w>reservas</w>
+      <w>seccion</w>
+      <w>seguro</w>
       <w>telefono</w>
       <w>tipo</w>
+      <w>titulo</w>
+      <w>userdata</w>
       <w>usuario</w>
       <w>usuarios</w>
     </words>

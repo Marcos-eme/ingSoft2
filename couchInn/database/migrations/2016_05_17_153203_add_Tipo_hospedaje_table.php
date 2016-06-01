@@ -12,9 +12,9 @@ class AddTipoHospedajeTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipoHospedaje', function (Blueprint $table) {
+        Schema::create('tipo_hospedaje', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tipo');
+            $table->string('tipo')->unique();
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ class AddTipoHospedajeTable extends Migration
      */
     public function down()
     {
-        Schema::drop('tipoHospedaje');
+        Schema::drop('tipo_hospedaje');
     }
 }

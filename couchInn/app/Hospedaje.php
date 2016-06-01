@@ -3,20 +3,31 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
 
-class Hospedaje extends Model
+class Hospedaje extends Model implements SluggableInterface
 {
+    use SluggableTrait;
+
+
     protected  $table ="hospedaje";
     protected  $fillable =['provincia','ciudad','calle','numero',
         'capacidad','descripcion','wifi','cable','baños','habitaciones'
-        ,'tipoCama','tipoHabitacion','tipoHospedaje_id','usuario_id'];
-    
-    public function tipoHospedaje(){
-        return $this->belongsTo('App\TipoHospedaje');
-    }
+        ,'tipo_cama','tipo_habitacion','tipo_hospedaje_id','usuario_id'];
+
+    protected $sluggable = [
+        'build_from' => 'provincia',
+        'save_to'    => 'slug',
+    ];
+
 
     public function usuario(){
         return $this->belongsTo('App\Usuario');
+    }
+
+    public function tipoHospedaje(){
+        return $this->belongsTo('App\Tipo_hospedaje');
     }
 
     public function imagenes (){
