@@ -12,7 +12,7 @@
                         <div class="btn btn-info-" href="{{route('usuario.hospedaje.create')}}"></div>
                         @include('flash::message')
                         @include('template.default.Perfil.partes.errores')
-                        <img src="{{'../images/'.Auth::User()->hospedajes()->first()->imagenes()->first()->nombre}}"></img>
+
 
                     </div>
                 </div>
