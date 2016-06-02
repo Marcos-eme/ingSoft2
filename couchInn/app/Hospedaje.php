@@ -53,4 +53,5 @@ class Hospedaje extends Model implements SluggableInterface
     public function disponibilidades (){
         return $this->hasMany('App\Disponibilidad');
     }
+   
 }

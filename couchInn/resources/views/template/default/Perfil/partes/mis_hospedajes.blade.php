@@ -10,12 +10,13 @@
                         @include('flash::message')
                         @include('template.default.Perfil.partes.errores')
 
+
                 @if($hospedajes->count()>0)
                     @foreach($hospedajes as $hospedaje)
 
                         <div class="media">
                         <a href="#" class="pull-left"><img class="img-responsive img-thumbnail"
-                                                          src="{{'../images/'.$hospedaje->imagenes()->first()->nombre}}" alt="" class="media-object"></a>
+                                                          src="{{'../images/hospedajes/'.$hospedaje->imagenes()->first()->nombre}}" alt="" class="media-object"></a>
                         <div class="media-body">
                             <h1 class="media-heading">hospedaje 1 </h1>
                             <p>{{$hospedaje->descripcion}}</p>

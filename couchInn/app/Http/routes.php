@@ -53,8 +53,9 @@ Route::group(['prefix'=> 'admin','middleware'=>['auth','admin']],function(){
 Route::auth();
 Route::group(['prefix'=> 'usuario'],function(){
 
- Route::resource('perfil','PerfilControlador');
 
+    Route::resource('perfil','PerfilControlador');
+    Route::resource('hospedaje','HospedajeControlador');
 
 });
 
