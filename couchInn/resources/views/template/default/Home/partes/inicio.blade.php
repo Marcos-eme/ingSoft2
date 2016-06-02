@@ -7,11 +7,11 @@
 
                     <input type="text" class="form-control input-lg" placeholder="¿A dónde querés ir?" aria-label="...">
 
+
                 </div>
                     <button class="btn-default col-lg-4 btn-lg search ">
                     <span class="glyphicon glyphicon-search"></span>
                     </button>
-
 
 
         </div>

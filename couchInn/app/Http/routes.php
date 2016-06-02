@@ -51,15 +51,17 @@ Route::group(['prefix'=> 'admin','middleware'=>['auth','admin']],function(){
 
 
 Route::auth();
-Route::group(['prefix'=> 'user'],function(){
+Route::group(['prefix'=> 'usuario'],function(){
 
+    Route::resource('perfil','PerfilControlador');
+/*
     Route::get('perfil/{id}/show',[
         'uses'=> 'UsuarioPerfil@show',
         'as' => 'user.perfil.show']);
 
-        Route::get('/{id}/donar',['as' => 'user.donner.donar', function(){
+    Route::get('/{id}/donar',['as' => 'user.donner.donar', function(){
         return view('donner.donar');
-    }]);
+         }]);*/
 
 });
 
