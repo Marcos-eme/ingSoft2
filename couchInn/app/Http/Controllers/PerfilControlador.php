@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Usuario;
 use Illuminate\Http\Request;
-
+use Auth;
 use App\Http\Requests;
 
 class PerfilControlador extends Controller
 {
     public function index(){
-        return view('template.default.Perfil.perfil_main');
+            $hospedajes = Auth::User()->hospedajes;
+            return view('template.default.Perfil.perfil_main')->with('hospedajes', $hospedajes);
+     
 }
     public function create($id){
 
