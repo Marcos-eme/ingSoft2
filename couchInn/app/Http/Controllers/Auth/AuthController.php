@@ -83,7 +83,7 @@ class AuthController extends Controller
     {
         $usuario=new Usuario($request->all());
         $usuario->password = bcrypt($request->password);
-        Flash::success('se ha guardado con exito');
+        Flash::success('Se ha registrado con exito');
         $usuario->save();
         //return Redirect::to('/');
         return $this->login()
@@ -112,10 +112,10 @@ class AuthController extends Controller
             return Redirect::to('/')->with('success','Ingreso correctamente al sistema');
         }
         // En caso de que la autenticacion haya fallado manda un mensaje al formulario de login y tambien regresamos los valores enviados con withInput().
-        Flash::error('ESCRIBI BIEN LA CONCHA DE TU HERMANA');
+        Flash::error('Los datos ingresados parecen no coincidir con una cuenta existente.');
         return Redirect::to('login')
 
-            ->with('mensaje_error', 'Datos de acceso erroneos, Intentelo nuevamente')
+ //           ->with('mensaje_error', 'Datos de acceso erroneos, Intentelo nuevamente')
             ->withInput();
     }
     
