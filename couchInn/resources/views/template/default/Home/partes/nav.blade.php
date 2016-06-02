@@ -34,18 +34,18 @@
 
                 </ul>
                 @if(Auth::User())
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                    <li><a href="{{route('admin.usuario.index')}}">Conviertete en anfitrion</a></li>
+                    <ul class="nav navbar-nav navbar-right">
+                    @if(Auth::User()->hospedajes->count() ==0)
+                            <li><a href="{{route('usuario.perfil.index')}}">Conviertete en anfitrion</a></li>
+                        @endif
+                            <li class="dropdown">
                     <a  class="dropdown-toggle btn btn-default btn-custom-iniciar text-color" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::User()->nombre .'  '. Auth::User()->apellido.'  '}}<span class="caret" ></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{route('user.perfil.show',Auth::User()->id)}}">Mi perfil</a></li>
+
                         <li><a href="{{ url('#$%^#%&$') }}">Mis viajes</a></li>
                         <li><a href="{{ url('#%^#%') }}">Mis reservas</a></li>
-                        <li><a href="{{ url('#$%^#%^#^#$') }}">Mis hospedajes</a></li>
+                        <li><a href="{{route('usuario.perfil.index')}}">Mis hospedajes</a></li>
                         <li><a href="{{ url('#%^#$^3#$%^#%') }}">Editar perfil</a></li>
-                         <li><a href="{{ route('user.donner.donar', Auth::User()->id) }}">Donar</a></li>
                         <li><a href="{{ url('/logout') }}">Salir</a></li>
 
                     </ul>
