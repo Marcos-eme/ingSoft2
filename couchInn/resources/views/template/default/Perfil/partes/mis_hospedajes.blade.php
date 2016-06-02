@@ -7,15 +7,26 @@
             </div>
             <br> <br>
             <div class="row">
-                <div class="panel panel-info">
-                    <div class="panel-body">
-                        <div class="btn btn-info-" href="{{route('usuario.hospedaje.create')}}"></div>
                         @include('flash::message')
                         @include('template.default.Perfil.partes.errores')
 
 
+                @if($hospedajes->count()>0)
+                    @foreach($hospedajes as $hospedaje)
+
+                        <div class="media">
+                        <a href="#" class="pull-left"><img class="img-responsive img-thumbnail"
+                                                          src="{{'../images/'.$hospedaje->imagenes()->first()->nombre}}" alt="" class="media-object"></a>
+                        <div class="media-body">
+                            <h1 class="media-heading">hospedaje 1 </h1>
+                            <p>{{$hospedaje->descripcion}}</p>
+                        </div>
                     </div>
-                </div>
+                    @endforeach
+                @else
+                <p>aun no tienes hospedajes</p>
+                @endif
+
             </div>
         </div>
     </section>

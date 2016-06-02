@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,20 +11,52 @@
 
     <title>@yield('titulo_pestaña') </title>
 
+
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('Bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
+    <link href="{{asset('Bootstrap/css/scrolling-nav.css')}}" rel="stylesheet">
+
+    <link href="{{asset('Bootstrap/css/perfil')}}" rel="stylesheet">
 
 </head>
 
 <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body>
+    @include('template.default.Perfil.partes.nav')
+    <div class="container">
+        @include('template.default.Perfil.partes.header')
 
-@include('template.default.Perfil.partes.header')
-@include('template.default.Perfil.partes.nav')
-@include('template.default.Perfil.partes.mis_hospedajes')
-@include('template.default.Perfil.partes.footer')
+    </div>
+
+    <div class="container" >
+        <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs">
+                            <li class="active" ><a data-toggle="tab" href="#mis_hospedajes" aria-controls="mis_hospedajes">Mis hospedajes</a></li>
+                            <li ><a data-toggle="tab" href="#mis_viajes" aria-controls="mis_viajes">Mis viajes</a></li>
+                            <li ><a data-toggle="tab" href="#mis_reservas" aria-controls="mis_reservas">Mis reservas</a></li>
+                        </ul>
+                    <div class="tab-content">
+                        <div id="mis_hospedajes"  class="tab-pane active">
+                            @include('template.default.Perfil.partes.mis_hospedajes')
+                        </div>
+                        <div id="mis_viajes"class="tab-pane">
+                            <h1>SOY MIS VIAJES, </h1>
+                        </div>
+                        <div id="mis_reservas"class="tab-pane">
+                            <h1>SOY MIS RESERVAS</h1>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+<div class="container">
+
+ @include('template.default.Perfil.partes.footer')
+</div>
+
 <!-- jQuery -->
 <script src="{{asset('Bootstrap/js/jquery.js')}}"></script>
 
