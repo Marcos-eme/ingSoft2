@@ -54,6 +54,7 @@ Route::auth();
 Route::group(['prefix'=> 'usuario'],function(){
 
     Route::resource('perfil','PerfilControlador');
+    Route::resource('hospedaje','HospedajeControlador');
 /*
     Route::get('perfil/{id}/show',[
         'uses'=> 'UsuarioPerfil@show',
