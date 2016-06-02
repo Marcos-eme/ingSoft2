@@ -34,7 +34,7 @@
                 @if(Auth::User())
                     <ul class="nav navbar-nav navbar-right">
                         @if(Auth::User()->hospedajes->count() ==0)
-                            <li><a href="{{route('usuario.perfil.index')}}">Conviertete en anfitrion</a></li>
+                            <li><a href="{{route('usuario.hospedaje.create')}}">Conviertete en anfitrion</a></li>
                         @endif
                         <li class="dropdown">
                             <a  class="dropdown-toggle btn btn-default btn-custom-iniciar text-color" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::User()->nombre .'  '. Auth::User()->apellido.'  '}}<span class="caret" ></span></a>
