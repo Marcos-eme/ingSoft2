@@ -12,5 +12,11 @@ class Tipo_hospedaje extends Model
     public function hospedajes (){
         return $this->hasMany('App\Hospedaje');
     }
+    
+    public function scopeTipo($query,$tipo)
+    {
+        return $query->where('tipo','LIKE','%$tipo%');
+    }
+   
 }
 
