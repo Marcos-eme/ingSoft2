@@ -19,6 +19,7 @@
                     <li><a href="{{route('admin.usuario.index')}}">Usuarios</a></li>
                     <li><a href="{{route('admin.tipo_hospedaje.index')}}">Tipos Hospedajes</a></li>
                     <li><a href="{{route('admin.rol.index')}}">Roles</a></li>
+                    <li><a href="{{route('admin.donaciones.index')}}">Donaciones</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">

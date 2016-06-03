@@ -29,6 +29,10 @@ Route::group(['prefix'=> 'admin','middleware'=>['auth','admin']],function(){
     Route::resource('usuario','UsuariosControlador');
     Route::resource('tipo_hospedaje','Tipo_HospedajeControlador');
     Route::resource('rol','RolControlador');
+    Route::get('donaciones',[
+        'uses' => 'DonacionControlador@index',
+        'as' => 'admin.donaciones.index'
+    ]);
 
 
     Route::get('tipo_hospedaje/{id}/destroy',[
@@ -56,6 +60,10 @@ Route::group(['prefix'=> 'usuario'],function(){
 
     Route::resource('perfil','PerfilControlador');
     Route::resource('hospedaje','HospedajeControlador');
+
+    Route::resource('donar','DonacionControlador');
+
+
 
 });
 

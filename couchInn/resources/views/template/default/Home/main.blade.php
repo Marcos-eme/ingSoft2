@@ -28,13 +28,14 @@
 
 <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body id="page-top" data-spy="scroll" >
 
 @include('template.default.Home.partes.nav')
 @yield('inicio')
 @yield('anfitriones')
 @yield('como_funciona')
 @yield('mas_visitados')
+
 @include('template.default.Home.partes.footer')
 <!-- jQuery -->
 <script src="{{asset('Bootstrap/js/jquery.js')}}"></script>
