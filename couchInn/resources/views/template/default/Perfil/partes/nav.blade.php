@@ -29,6 +29,9 @@
                     <li>
                         <a class="page-scroll" href="#mas_visitados">Mas visitados</a>
                     </li>
+                    <li>
+                        <a class="page-scroll" href="#mas_visitados">Mas viasdasdasdsasitados</a>
+                    </li>
 
                 </ul>
                 @if(Auth::User())
@@ -39,13 +42,12 @@
                         <li class="dropdown">
                             <a  class="dropdown-toggle btn btn-default btn-custom-iniciar text-color" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::User()->nombre .'  '. Auth::User()->apellido.'  '}}<span class="caret" ></span></a>
                             <ul class="dropdown-menu">
-
                                 <li><a href="{{ url('#$%^#%&$') }}">Mis viajes</a></li>
                                 <li><a href="{{ url('#%^#%') }}">Mis reservas</a></li>
-                                <li><a href="{{route('usuario.perfil.index')}}">Mis hospedajes</a></li>
+                                <li><a href="{{route('usuario.perfil.index')}}">Mis Hospedajes</a></li>
                                 <li><a href="{{ url('#%^#$^3#$%^#%') }}">Editar perfil</a></li>
+                                <li><a href="{{route('usuario.donar.create')}}">Donar</a></li>
                                 <li><a href="{{ url('/logout') }}">Salir</a></li>
-
                             </ul>
                         </li>
                     </ul>
