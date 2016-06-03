@@ -46,6 +46,7 @@
                         <li><a href="{{ url('#%^#%') }}">Mis reservas</a></li>
                         <li><a href="{{route('usuario.perfil.index')}}">Mis hospedajes</a></li>
                         <li><a href="{{ url('#%^#$^3#$%^#%') }}">Editar perfil</a></li>
+                        <li><a href="{{route('usuario.donar.create')}}">Donar</a></li>
                         <li><a href="{{ url('/logout') }}">Salir</a></li>
 
                     </ul>
