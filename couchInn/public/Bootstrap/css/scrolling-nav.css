@@ -65,14 +65,32 @@ html {
 }
 .inicio-section {
     height: 100%;
-    padding-top: 150px;
+    padding-top: 92px;
     text-align: center;
-    background-image: url("../../images/mendozaHome.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
+ }
+.img-on-top {
+    position:absolute;
+    z-index:99;
+    left:28%;
+    bottom:40%;
 }
+.search-btn-on-top{
+    position:absolute !important;
+    right: 25%;
+    z-index:99;
+    bottom:25%;
+    padding: 10px 100px;
 
+}
+.search-bar-on-top{
+    position:absolute !important;
+    width:40% !important;
+    left:25%;
+    z-index:99;
+    bottom:25%;
+
+
+}
 .como_funciona-section {
     height: 100%;
     padding-top: 150px;
