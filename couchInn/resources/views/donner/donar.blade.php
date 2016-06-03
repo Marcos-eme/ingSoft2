@@ -1,4 +1,4 @@
-@extends('template.default.main')
+@extends('template.default.Home.main')
 @section('titulo_container','Donar')
 @section('titulo_pestaña','Nueva donacion')
 

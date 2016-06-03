@@ -16,6 +16,7 @@ html {
 
 @media(min-width:767px) {
     .navbar {
+
         padding: 20px 0;
         -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
         -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
@@ -26,33 +27,69 @@ html {
         padding: 0;
     }
 }
+.btn-custom-iniciar{
+    background-color: #9DAB20;
+    border-radius:0px;
+    padding:13px;
+    border-color: #FFFFFF;
 
-/* Demo Sections - You can use these as guides or delete them - the scroller will work with any sort of height, fixed, undefined, or percentage based.
-The padding is very important to make sure the scrollspy picks up the right area when scrolled to. Adjust the margin and padding of sections and children 
-of those sections to manage the look and feel of the site. */
+}
+.btn-custom-reg{
+    background-color: #788928;
+    border-radius:0px;
+    border-color: #FFFFFF;
 
-.intro-section {
+}
+
+.logo{
+    background-image: url(../../images/sillon.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: center;
+    padding: 15px 24px;
+    height: 50px;
+
+}
+
+.text-color{
+    padding: 14px 24px;
+    border: 0 none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #FFF !important;
+
+}
+.navbar-custom {
+    background-color: white;
+
+}
+.inicio-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
-    background: #3EB538;
+    background-image: url("../../images/mendozaHome.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
-.about-section {
+.como_funciona-section {
     height: 100%;
     padding-top: 150px;
+    font-size:24px;
+    color:white;
     text-align: center;
-    background: #eee;
+    background: #0f0f0f;
 }
 
-.services-section {
+.anfitrion-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
     background: #fff;
 }
 
-.contact-section {
+.mas_visitados-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
@@ -60,5 +97,30 @@ of those sections to manage the look and feel of the site. */
 }
 .title_section{
     text-align: center;
+
+}
+.none_padding{
+    padding:0px 0px;
+}
+
+.search{
+     background: #9DAB20;
+     color: #ffffff;
+     border-radius: 0px;
+     border-color: transparent;
+ }
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    background: #9DAB20 !important;
+}
+
+
+.btn-default:active, .btn-default.active {
+    background: #788928 !important;
+    box-shadow: none;
+}
+.input-lg{
+    height:48px;
+    border-radius:0px;
 
 }
