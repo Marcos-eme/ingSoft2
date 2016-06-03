@@ -53,7 +53,7 @@
         </div>
     </div>
 <div class="container">
-
+ @yield('donar')
  @include('template.default.Perfil.partes.footer')
 </div>
 
