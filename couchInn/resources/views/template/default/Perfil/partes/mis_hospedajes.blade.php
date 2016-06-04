@@ -6,6 +6,7 @@
                 <h1 class="text-center"></h1>
             </div>
             <br> <br>
+            <div class="pagination">
             <div class="row">
                         @include('flash::message')
                         @include('template.default.Perfil.partes.errores')
@@ -16,7 +17,7 @@
 
                         <div class="media">
                         <a href="#" class="pull-left"><img class="img-responsive img-thumbnail "
-                                                          src="{{'../images/'.$hospedaje->imagenes()->first()->nombre}}" alt="" class="media-object"></a>
+                                                          src="{{'../images/hospedajes/'.$hospedaje->imagenes()->first()->nombre}}" alt="" class="media-object"></a>
                         <div class="media-body">
                             <h1 class="media-heading">hospedaje 1 </h1>
                             <p>{{$hospedaje->descripcion}}</p>
@@ -26,7 +27,7 @@
                 @else
                 <p>aun no tienes hospedajes</p>
                 @endif
-
+            </div>
             </div>
         </div>
     </section>
