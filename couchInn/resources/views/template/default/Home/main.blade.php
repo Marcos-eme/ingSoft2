@@ -31,6 +31,7 @@
 <body id="page-top" data-spy="scroll" >
 
 @include('template.default.Home.partes.nav')
+
 @yield('inicio')
 @yield('anfitriones')
 @yield('como_funciona')

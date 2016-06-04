@@ -45,8 +45,9 @@ class DonacionControlador extends Controller
         $donacion->usuario_id = Auth::User()->id;
         $user = Usuario::find($donacion->usuario_id);
         $user->rol_id=3;
-        return redirect('/');
         Flash::success('Muchas gracias por su contribución, ahora usted es miembro Golden!');
+        return redirect('/');
+
 
 //        $user->save();
 //        $donacion->save();

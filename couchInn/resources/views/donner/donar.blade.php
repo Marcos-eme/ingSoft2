@@ -16,6 +16,7 @@
             {!! Form::label('monto','Monto a donar:')!!}
             {!! Form::text('monto',null,['class'=>'form-control','placeholder'=>'Ingresa el monto a donar','required']) !!}
             {!! Form::submit('¡DONAR!',['class'=>'btn btn-default'])!!}
+
         </div>
     {!! Form::close()!!}
 @endsection

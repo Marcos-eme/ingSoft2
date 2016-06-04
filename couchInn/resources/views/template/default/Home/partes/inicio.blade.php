@@ -2,7 +2,7 @@
 
     <div class="container-fluid">
         <div class="row">
-
+            @include ('flash::message')
             <div style="position: relative;">
 
 
