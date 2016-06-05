@@ -8,6 +8,7 @@ use Auth;
 use App\Usuario;
 use Laracasts\Flash\Flash;
 use App\Http\Requests;
+use App\Http\Requests\DonacionRequest;
 
 class DonacionControlador extends Controller
 {
@@ -38,15 +39,16 @@ class DonacionControlador extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DonacionRequest $request)
     {
         
         $donacion=new Donacion($request->all());
         $donacion->usuario_id = Auth::User()->id;
         $user = Usuario::find($donacion->usuario_id);
         $user->rol_id=3;
-        return redirect('/');
         Flash::success('Muchas gracias por su contribución, ahora usted es miembro Golden!');
+        return redirect()->route('usuario.perfil.index');
+
 
 //        $user->save();
 //        $donacion->save();

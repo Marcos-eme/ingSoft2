@@ -31,6 +31,10 @@
 <body id="page-top" data-spy="scroll" >
 
 @include('template.default.Home.partes.nav')
+
+@include('flash::message')
+@include('template.basicoAdmin.partes.errores')
+
 @yield('inicio')
 @yield('anfitriones')
 @yield('como_funciona')
@@ -46,6 +50,10 @@
 <!-- Scrolling Nav JavaScript -->
 <script src="{{asset('Bootstrap/js/jquery.easing.min.js')}}"></script>
 <script src="{{asset('Bootstrap/js/scrolling-nav.js')}}"></script>
+<script>
+    $().ready(function(){
+        $("#carousel_home").carousel({interval:5000,pause:false});});
+</script>
 </body>
 
 </html>
