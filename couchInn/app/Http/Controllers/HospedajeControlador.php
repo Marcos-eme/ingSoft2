@@ -27,6 +27,12 @@ class HospedajeControlador extends Controller
             ->with('hospedaje',$hospedaje);
     }
 
+    public function index($request){
+        $hospedaje = Hospedaje::find($request);
+        return view('template.default.Hospedaje.index')
+            ->with('hospedaje',$hospedaje);
+    }
+
     public function create(){
         $tipo_hospedajes =Tipo_hospedaje::all();
         $array=array();

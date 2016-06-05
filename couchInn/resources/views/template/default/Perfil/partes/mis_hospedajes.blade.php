@@ -19,6 +19,7 @@
                             <h1 class="media-heading">hospedaje 1 </h1>
                             <p>{{$hospedaje->descripcion}}</p>
                             <a href="{{route('usuario.hospedaje.edit',$hospedaje)}}" class="btn btn-success">editar hospedaje</a>
+                            <a href="{{route('usuario.hospedaje.index',$hospedaje->id)}}" class="btn btn-success">ver hospedaje</a>
                         </div>
                         </div>
                     @endforeach
