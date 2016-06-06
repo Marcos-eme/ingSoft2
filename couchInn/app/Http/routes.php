@@ -61,9 +61,25 @@ Route::group(['prefix'=> 'usuario'],function(){
     Route::resource('perfil','PerfilControlador');
     Route::resource('hospedaje','HospedajeControlador');
     Route::resource('donar','DonacionControlador');
+
     Route::get('hospedaje/{id}/index',[
         'uses'=>'HospedajeControlador@index',
         'as'=>'usuario.hospedaje.index'
+    ]);
+
+    Route::get('hospedaje/{id}/imagenes',[
+        'uses'=>'HospedajeControlador@imagenes',
+        'as'=>'usuario.hospedaje.imagenes'
+    ]);
+
+    Route::put('hospedaje/storeImage/{hospedaje}',[
+        'uses'=>'HospedajeControlador@storeImage',
+        'as'=>'usuario.hospedaje.storeImage'
+    ]);
+
+    Route::get('hospedaje/deleteImage/{hospedaje}/{id}',[
+        'uses'=>'HospedajeControlador@deleteImage',
+        'as'=>'usuario.hospedaje.deleteImage'
     ]);
 
 
