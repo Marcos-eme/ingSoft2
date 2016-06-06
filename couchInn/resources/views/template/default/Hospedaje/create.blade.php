@@ -37,6 +37,8 @@
         {!! Form::file('imagen',['class'=>'form-control']) !!}
         <br>
 
+
+
         <!--Estas no son obligatorias -->
         {!! Form::label('wifi','Wifi: ')!!}
         {!! Form::checkbox('wifi',false) !!}
