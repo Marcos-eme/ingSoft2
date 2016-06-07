@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Validator;
 use App\Tipo_hospedaje;
 use App\Hospedaje;
 use App\Imagen;
@@ -25,6 +26,50 @@ class HospedajeControlador extends Controller
         return view('template.default.Hospedaje.edit')
             ->with('tipo_hospedajes',$array)
             ->with('hospedaje',$hospedaje);
+    }
+
+    public function index($request){
+        $hospedaje = Hospedaje::find($request);
+        return view('template.default.Hospedaje.index')
+            ->with('hospedaje',$hospedaje);
+    }
+
+    public function imagenes($id){
+        $hospedaje = Hospedaje::find($id);
+        return view('template.default.Hospedaje.images')
+            ->with('hospedaje',$hospedaje);
+    }
+
+    public function deleteImage($id,$hospedajeid)
+    {
+        if (Hospedaje::find($hospedajeid)->imagenes()->count() > 1) {
+            $imagen = Imagen::find($id);
+            $imagen->delete();
+            Flash::success('Se ha eliminado la imagen correctamente');
+            return $this->imagenes($hospedajeid);
+
+        } else{
+            Flash::error('Debe haber al menos una imagen en el hospedaje. Si se quiere modificar se debe: *agregar la imagen deseada *Borrar la imagen antigua');
+        }
+         return $this->imagenes($hospedajeid);
+    }
+
+    public function storeImage(Request $request,$id){
+        $hospedaje = Hospedaje::find($id);
+        try{
+            $imagen=new Imagen;
+            $file=$request->file('imagen');
+            $name='Imagen_'.Auth::User()->id.'_'.time().'.'.$file->getClientOriginalExtension();
+            $path=public_path().'/images/hospedajes';
+            $file->move($path,$name);
+            $imagen->nombre=$name;
+            //para q no haya un error al momento de agregar los id
+            $imagen->hospedaje()->associate($hospedaje);
+            $imagen->save();
+        }catch (Exception $e){
+            dd('error al guardar imagen  '.$e);
+        }
+        return $this->imagenes($id);
     }
 
     public function create(){
@@ -52,19 +97,6 @@ class HospedajeControlador extends Controller
             dd('error al guardar hospedaje  '.$e);
         }
 
-        try{
-            $imagen=new Imagen;
-            $file=$request->file('imagen');
-            $name='Imagen_'.Auth::User()->id.'_'.time().'.'.$file->getClientOriginalExtension();
-            $path=public_path().'/images/hospedajes';
-            $file->move($path,$name);
-            $imagen->nombre=$name;
-            //para q no haya un error al momento de agregar los id
-            $imagen->hospedaje()->associate($hospedaje);
-            $imagen->save();
-        }catch (Exception $e){
-            dd('error al guardar imagen  '.$e);
-        }
 
         Flash::success('se ha agregado el hospedaje con exito');
         return redirect()->route('usuario.perfil.index');
