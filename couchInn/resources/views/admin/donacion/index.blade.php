@@ -1,10 +1,21 @@
 @extends('template.basicoAdmin.main')
-
-@section('title', 'Donaciones realizadas')
+@section('titulo_container','Lista Donaciones')
+@section('titulo_pestaña','Donaciones')
 
 @section('contenido_container')
-
-{{ "HOLA, HAY QUE HACER LA VISTA BIEN PIPI CUCU" }}
-{{ "Lo dejé así nomás para que no me salte error" }}
-
+    <table class="table table-striped">
+        <thead>
+        <th>Donaciones</th>
+        </thead>
+        <tbody>
+        <td>{{"Monto" . " --- " . "Usuario" . " --- " . "Fecha"}}</td>
+        @foreach($donaciones as $donacion)
+            <tr>
+                <td>{{$donacion->monto}}{{" - " . $donacion->usuario->email . " - " . $donacion->created_at}}</td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+    {!! $donaciones->render() !!}
+    <br>
 @endsection
