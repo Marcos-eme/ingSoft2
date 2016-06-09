@@ -26,14 +26,32 @@
         <br>
         {!! Form::label('descripcion','Descripcion')!!}
         {!! Form::textArea('descripcion',$hospedaje->descripcion,['class'=>'form-control','placeholder'=>'Breve descripcion del hospedaje','required']) !!}
-
-        <a href="#" class="pull-left"><img class="img-responsive img-thumbnail "
-                                           src="{{asset('/images/hospedajes/'.$hospedaje->imagenes()->first()->nombre)}}" alt="" class="media-object"></a>
-
         <br>
-        {!! Form::label('imagen','cambiar imagen por:')!!}
-        {!! Form::file('imagen',['class'=>'form-control']) !!}
-        <br>
+
+        <a href="{{route('usuario.hospedaje.imagenes',$hospedaje->id)}}">
+            <h3>Mis Imagenes</h3>
+            <div class="row">
+                <div class="col-xs-6 col-md-6 col-md-offset-3">
+
+                    <img class="img-responsive img-thumbnail" style="width:500px ; height: auto;"
+                         src="{{asset('/images/hospedajes/'.$hospedaje->imagenes()->first()->nombre)}}"
+                         alt="" class="media-object">
+                </div>
+            </div>
+            <div class="row">
+            @foreach($hospedaje->imagenes as $imagen)
+                @if($imagen->nombre != $hospedaje->imagenes()->first()->nombre)
+                    <div class="col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <img style="width:200px ; height: auto;"
+                                 src="{{asset('/images/hospedajes/'.$imagen->nombre)}}">
+                        </div>
+                    </div>
+                @endif
+            @endforeach
+
+            </div>
+        </a>
 
         <!--Estas no son obligatorias -->
         {!! Form::label('wifi','Wifi: ')!!}
