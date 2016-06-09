@@ -19,8 +19,8 @@ class DonacionControlador extends Controller
      */
     public function index()
     {
-//      $donacion= Usuario::orderBy('id','ASC')->paginate(5);
-        return view('admin.donacion.index'); //->with('donacion',$donacion);
+      $donaciones= Donacion::orderBy('id','ASC')->paginate(5);  
+      return view('admin.donacion.index')->with('donaciones',$donaciones);
     }
 
     /**
@@ -45,8 +45,21 @@ class DonacionControlador extends Controller
         $donacion=new Donacion($request->all());
         $donacion->usuario_id = Auth::User()->id;
         $user = Usuario::find($donacion->usuario_id);
-        $user->rol_id=3;
-        Flash::success('Muchas gracias por su contribución, ahora usted es miembro Golden!');
+        if($user->rol_id!=3 && $user->rol_id!=1){
+         $user->rol_id=3;
+         $user->save();
+         $donacion->save();
+         Flash::success('Muchas gracias por su contribución, ahora usted es miembro Golden!');
+        }else{
+            if($user->rol_id==3){
+                $donacion->save();
+                Flash::success('Muchas gracias por su contribución, usted ya era miembro Golden!');    
+            }else
+                if ($user->rol_id==1) {
+                    Flash::success('Usted es administrador');
+                }
+        }
+        
         return redirect()->route('usuario.perfil.index');
 
 
