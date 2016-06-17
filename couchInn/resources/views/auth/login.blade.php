@@ -23,6 +23,7 @@
 
         <div class="form-group">
         {!! Form::submit('Iniciar Sesion',['class'=>'btn btn-default'])!!}
+            <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
         </div>
     {!! Form::close()!!}
 @endsection

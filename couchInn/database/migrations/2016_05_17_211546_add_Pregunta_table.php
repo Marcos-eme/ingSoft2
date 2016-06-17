@@ -17,6 +17,7 @@ class AddPreguntaTable extends Migration
             $table->text('pregunta');
 
             $table->integer('usuario_id')->unsigned();
+            $table->boolean('baja_logica')->default(FALSE);
             $table->integer('hospedaje_id')->unsigned();
 
             $table->foreign('usuario_id')->references('id')->on('usuario')->onDelete('cascade');

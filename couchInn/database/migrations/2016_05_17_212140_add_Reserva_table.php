@@ -16,6 +16,7 @@ class AddReservaTable extends Migration
             $table->increments('id');
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
+            $table->boolean('baja_logica')->default(FALSE);
             $table->enum('estado',['Aceptada','Rechazada','Pendiente','Finalizada','SinNotificar']);
 
             $table->integer('usuario_id')->unsigned();

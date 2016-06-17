@@ -15,6 +15,7 @@ class AddDonacionTable extends Migration
         Schema::create('donacion', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('monto');
+            $table->boolean('baja_logica')->default(FALSE);
             $table->timestamps();
 
             $table->integer('usuario_id')->unsigned();
