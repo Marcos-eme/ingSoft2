@@ -25,7 +25,7 @@ class DonacionRequest extends Request
     {
         //el maximo tiene que ver con la cantidad de digitos no con el numero real...
         return [
-            'monto'=>'min:0|max:5|required'
+            'monto'=>'integer|required'
         ];
     }
 }

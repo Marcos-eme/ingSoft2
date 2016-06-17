@@ -1,11 +1,11 @@
-@extends('template.basicoAdmin.main')
+@extends('template.default.Home.main')
 @section('titulo_container','Crear Hospedaje')
 @section('titulo_pestaña','CrearHospedaje')
 
-@section('contenido_container')
+@section('inicio')
 
     {!! Form::open(['route'=>'usuario.hospedaje.store','method'=>'post','files'=>'true']) !!}
-        <div class="form-group">
+        <div class="form-group" style= "margin-top:10%;margin-left:5%;margin-right:5%;">
             <!--Obligatorias -->
         @if($usuario->telefono == null)
             {!! Form::label('telefono','Telefono:',['require'])!!}
