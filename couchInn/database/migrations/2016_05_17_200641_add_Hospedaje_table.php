@@ -21,6 +21,7 @@ class AddHospedajeTable extends Migration
             $table->integer('numero');
             $table->integer('capacidad');
             $table->text('descripcion');
+            $table->boolean('baja_logica')->default(FALSE);
             //no obligatorios
             $table->boolean('wifi')->default(false);
             $table->boolean('cable')->default(false);

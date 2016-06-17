@@ -15,6 +15,8 @@ class AddRolTable extends Migration
         Schema::create('rol', function (Blueprint $table) {
             $table->increments('id');
             $table->string('rol')->unique();
+            $table->boolean('baja_logica')->default(FALSE);
+            
             $table->timestamps();
         });
         
