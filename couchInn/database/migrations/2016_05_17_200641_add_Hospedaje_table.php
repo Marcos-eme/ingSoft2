@@ -14,9 +14,6 @@ class AddHospedajeTable extends Migration
     {
         Schema::create('hospedaje', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->string('provincia');
-            $table->string('ciudad');
             $table->string('calle');
             $table->integer('numero');
             $table->integer('capacidad');
@@ -33,6 +30,11 @@ class AddHospedajeTable extends Migration
 
             $table->integer('usuario_id')->unsigned();
             $table->integer('tipo_hospedaje_id')->unsigned();
+            $table->integer('ciudad_id')->unsigned();
+            $table->integer('provincia_id')->unsigned();
+
+            $table->foreign('ciudad_id')->references('id')->on('ciudad')->onDelete('cascade');
+            $table->foreign('provincia_id')->references('id')->on('provincia')->onDelete('cascade');
             $table->foreign('usuario_id')->references('id')->on('usuario')->onDelete('cascade');
             $table->foreign('tipo_hospedaje_id')->references('id')->on('tipo_hospedaje')->onDelete('cascade');
             $table->timestamps();
