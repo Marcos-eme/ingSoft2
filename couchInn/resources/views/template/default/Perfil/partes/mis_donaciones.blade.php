@@ -1,7 +1,17 @@
 <div class="container-fluid">
-    @if($hospedajes->count()>0)
+
+    @if($donaciones->count()>0)
         <div class="col-md-12" style="padding: 50px">
-            <p>¡Aún no has hecho ninguna donación!</p>
+            <p>
+                 <td>{{"Monto" . " ---- " . "Fecha"}}</td>
+                @foreach($donaciones as $donacion)
+                    <div>
+                <tr>
+                    <td>{{$donacion->monto}}{{"     -----> " . $donacion->created_at}}</td>
+                </tr>
+                    </div>
+                @endforeach
+            </p>
         </div>
 
     @else
