@@ -14,6 +14,7 @@
         @endif
             {!! Form::label('tipo_hospedaje','Clase de hospedaje:')!!}
             {!! Form::select('tipo_hospedaje', $tipo_hospedajes) !!}
+
             <br>
 
             {!! Form::label('provincia','Provincia:')!!}

@@ -9,11 +9,16 @@
         {!! Form::label('tipo_hospedaje','Clase de hospedaje:')!!}
         {!! Form::select('tipo_hospedaje', $tipo_hospedajes) !!}
         <br>
+
         {!! Form::label('provincia','Provincia:')!!}
-        {!! Form::text('provincia',$hospedaje->provincia,['class'=>'form-control','placeholder'=>'Ingresa la provincia','required']) !!}
+        {!! Form::select('provincia', $provincias ,$hospedaje->provincia->provincia,['class'=>'form-control']) !!}
+
         <br>
+
         {!! Form::label('ciudad','Ciudad:')!!}
-        {!! Form::text('ciudad',$hospedaje->ciudad,['class'=>'form-control','placeholder'=>'Ingresa la ciudad','required']) !!}
+        {!! Form::select('ciudad', $ciudades ,$hospedaje->ciudad->ciudad,['class'=>'form-control']) !!}
+
+
         <br>
         {!! Form::label('calle','Calle:')!!}
         {!! Form::text('calle',$hospedaje->calle,['class'=>'form-control','placeholder'=>'Ingresa la calle','required']) !!}
