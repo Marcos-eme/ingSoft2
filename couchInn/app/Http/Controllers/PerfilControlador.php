@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Usuario;
+use App\Donacion;
 use Illuminate\Http\Request;
 use Auth;
 use App\Http\Requests;
@@ -11,7 +12,11 @@ class PerfilControlador extends Controller
 {
     public function index(){
             $hospedajes = Auth::User()->hospedajes;
-            return view('template.default.Perfil.perfil_main')->with('hospedajes', $hospedajes);
+            $donaciones = Auth::User()->donaciones;
+            return view('template.default.Perfil.perfil_main')
+                ->with('hospedajes', $hospedajes)
+                ->with('donaciones', $donaciones);
+            
      
 }
     public function create($id){
