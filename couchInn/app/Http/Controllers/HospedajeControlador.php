@@ -125,7 +125,7 @@ class HospedajeControlador extends Controller
             $hospedaje->usuario_id=Auth::User()->id;
             $hospedaje->tipo_hospedaje_id=$request->tipo_hospedaje;
             $hospedaje->ciudad_id=$request->ciudad;
-            $hospedaje->provincia_id=$request->provincia;;
+            $hospedaje->provincia_id=$request->provincia;
 
             $hospedaje->save();
         }catch (Exception $e){
