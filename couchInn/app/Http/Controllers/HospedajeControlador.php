@@ -122,14 +122,12 @@ class HospedajeControlador extends Controller
         $hospedaje= new Hospedaje;
         try{
             $hospedaje->fill($request->all());
-            dd($hospedaje);
             $hospedaje->usuario_id=Auth::User()->id;
             $hospedaje->tipo_hospedaje_id=$request->tipo_hospedaje;
             $hospedaje->ciudad_id=$request->ciudad;
-            $hospedaje->provincia_id=$hospedaje->ciudad->id_privincia;
+            $hospedaje->provincia_id=$request->provincia;;
 
             $hospedaje->save();
-            dd('me guadde bien!');
         }catch (Exception $e){
             dd('error al guardar hospedaje  '.$e);
         }

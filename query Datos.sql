@@ -1,20 +1,6 @@
 
---
--- Estructura de tabla para la tabla `provincias`
---
 
-DROP TABLE IF EXISTS `provincia`;
-CREATE TABLE IF NOT EXISTS `provincia` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `provincia` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
-
---
--- Volcar la base de datos para la tabla `provincias`
---
-
-INSERT INTO `provincias` (`id`, `provincia`) VALUES
+INSERT INTO `provincia` (`id`, `provincia`) VALUES
 (1, 'Buenos Aires'),
 (2, 'Buenos Aires-GBA'),
 (3, 'Capital Federal'),
@@ -42,23 +28,9 @@ INSERT INTO `provincias` (`id`, `provincia`) VALUES
 (25, 'Tucumán');
 
 
---
--- Estructura de tabla para la tabla `localidades`
---
 
-DROP TABLE IF EXISTS `ciudad`;
-CREATE TABLE IF NOT EXISTS `ciudad` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_privincia` int(11) NOT NULL,
-  `ciudad` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2383 ;
 
---
--- Volcar la base de datos para la tabla `localidades`
---
-
-INSERT INTO `ciudad` (`id`, `id_privincia`, `ciudad`) VALUES
+INSERT INTO `ciudad` (`id`, `provincia_id`, `ciudad`) VALUES
 (1, 1, '25 de Mayo'),
 (2, 1, '3 de febrero'),
 (3, 1, 'A. Alsina'),
@@ -2132,7 +2104,9 @@ INSERT INTO `ciudad` (`id`, `id_privincia`, `ciudad`) VALUES
 (2071, 22, 'Palacios'),
 (2072, 22, 'Pavón'),
 (2073, 22, 'Pavón Arriba');
-INSERT INTO `ciudad` (`id`, `id_privincia`, `ciudad`) VALUES
+
+
+INSERT INTO `ciudad` (`id`, `provincia_id`, `ciudad`) VALUES
 (2074, 22, 'Pedro Gómez Cello'),
 (2075, 22, 'Pérez'),
 (2076, 22, 'Peyrano'),
