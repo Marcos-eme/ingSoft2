@@ -10,8 +10,6 @@
     <meta name="author" content="">
 
     <title>@yield('titulo_pestaña') </title>
-
-
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('Bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
@@ -34,12 +32,18 @@
         <div class="row">
                 <div class="col-md-12">
                     <ul class="nav nav-tabs">
-                            <li class="active" ><a data-toggle="tab" href="#mis_hospedajes" aria-controls="mis_hospedajes">Mis hospedajes</a></li>
+                            <li class="active" ><a data-toggle="tab" href="#mis_datos" aria-controls="mis_datos">Mis datos</a></li>
+                            <li ><a data-toggle="tab" href="#mis_hospedajes" aria-controls="mis_hospedajes">Mis hospedajes</a></li>
                             <li ><a data-toggle="tab" href="#mis_viajes" aria-controls="mis_viajes">Mis viajes</a></li>
                             <li ><a data-toggle="tab" href="#mis_reservas" aria-controls="mis_reservas">Mis reservas</a></li>
-                        </ul>
+                            <li ><a data-toggle="tab" href="#mis_donaciones" aria-controls="mis_donaciones">Mis donaciones</a></li>
+
+                    </ul>
                     <div class="tab-content">
-                        <div id="mis_hospedajes"  class="tab-pane active">
+                        <div id="mis_datos"  class="tab-pane active">
+                            @include('template.default.Perfil.partes.mis_datos')
+                        </div>
+                        <div id="mis_hospedajes"  class="tab-pane">
                             @include('template.default.Perfil.partes.mis_hospedajes')
                         </div>
                         <div id="mis_viajes"class="tab-pane">
@@ -48,6 +52,10 @@
                         <div id="mis_reservas"class="tab-pane">
                             <h1>SOY MIS RESERVAS</h1>
                         </div>
+                        <div id="mis_donaciones"class="tab-pane">
+                            @include('template.default.Perfil.partes.mis_donaciones')
+                        </div>
+
                     </div>
                 </div>
         </div>

@@ -10,9 +10,9 @@
             <div class="row">
                 @include('flash::message')
                 @include('template.default.Perfil.partes.errores')
-                <a href="{{route('usuario.hospedaje.create')}}" class="btn btn-success">Agregar Hospedaje</a>
                 @if($hospedajes->count()>0)
-                    @foreach($hospedajes as $hospedaje)
+                 <a href="{{route('usuario.hospedaje.create')}}" class="btn btn-success" ">Agregar Hospedaje</a>
+                @foreach($hospedajes as $hospedaje)
                         <div class="media">
                         <a href="#" class="pull-left"><img class="img-responsive img-thumbnail" style="width:250px ; height: auto";
                                                            src="{{asset('/images/hospedajes/'.$hospedaje->imagenes()->first()->nombre)}}" alt="" class="media-object"></a>
@@ -25,8 +25,13 @@
                         </div>
                     @endforeach
                 @else
-                    <p>aun no tienes hospedajes</p>
+                    <div class="col-md-12" style="padding-bottom: 50px">
+                    <p>¡Aún no tienes hospedajes!</p>
+                     </div>
+                    <a href="{{route('usuario.hospedaje.create')}}" class="btn btn-success" ">Agregar Hospedaje</a>
+
                 @endif
+
             </div>
             </div>
         </div>
