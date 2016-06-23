@@ -176,4 +176,17 @@ class HospedajeControlador extends Controller
         return redirect()->route('usuario.perfil.index');
     }
 
+    public function destroy($id){
+
+        $hospedaje = Hospedaje::find($id);
+        $hospedaje->delete();
+        Flash::error('Se ha eliminado el hospedaje correctamente');
+        return redirect()->route('usuario.perfil.index');
+
+    }
+
+    public function show($id){
+
+    }
+
 }
