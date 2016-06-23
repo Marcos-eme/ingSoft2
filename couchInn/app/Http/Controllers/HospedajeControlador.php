@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Usuario;
 use Illuminate\Http\Request;
 use Auth;
 use Validator;
@@ -86,9 +87,13 @@ class HospedajeControlador extends Controller
     }
 
     public function store(Request $request){
-
+        $usuario=Usuario::find(Auth::User()->id);
+        if($usuario != null && $usuario->telefono == null){
+            $usuario->telefono=$request->telefono;
+            $usuario->save();
+        }
+        $hospedaje= new Hospedaje;
         try{
-            $hospedaje= new Hospedaje;
             $hospedaje->fill($request->all());
             $hospedaje->usuario_id=Auth::User()->id;
             $hospedaje->tipo_hospedaje_id=$request->tipo_hospedaje;
@@ -97,6 +102,19 @@ class HospedajeControlador extends Controller
             dd('error al guardar hospedaje  '.$e);
         }
 
+        try{
+            $imagen=new Imagen;
+            $file=$request->file('imagen');
+            $name='Imagen_'.Auth::User()->id.'_'.time().'.'.$file->getClientOriginalExtension();
+            $path=public_path().'/images/hospedajes';
+            $file->move($path,$name);
+            $imagen->nombre=$name;
+            //para q no haya un error al momento de agregar los id
+            $imagen->hospedaje()->associate($hospedaje);
+            $imagen->save();
+        }catch (Exception $e){
+            dd('error al guardar imagen  '.$e);
+        }
 
         Flash::success('se ha agregado el hospedaje con exito');
         return redirect()->route('usuario.perfil.index');

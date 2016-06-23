@@ -15,6 +15,7 @@ class AddDisponibilidadTable extends Migration
         Schema::create('disponibilidad', function (Blueprint $table) {
             $table->increments('id');
             $table->date('fecha_inicio');
+            $table->boolean('baja_logica')->default(FALSE);
             $table->date('fecha_fin');
 
             $table->integer('hospedaje_id')->unsigned();
