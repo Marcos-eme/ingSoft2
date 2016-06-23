@@ -44,7 +44,9 @@
                     <a  class="dropdown-toggle btn btn-default btn-custom-iniciar text-color" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::User()->nombre .'  '. Auth::User()->apellido.'  '}}<span class="caret" ></span></a>
                     <ul class="dropdown-menu">
 
+                        <li><a href="{{ route('usuario.perfil.index') }}">Mi perfil</a></li>
                         <li><a href="{{ url('#$%^#%&$') }}">Mis viajes</a></li>
+
                         <li><a href="{{ url('#%^#%') }}">Mis reservas</a></li>
                         <li><a href="{{route('usuario.perfil.index')}}">Mis hospedajes</a></li>
                         <li><a href="{{ url('#%^#$^3#$%^#%') }}">Editar perfil</a></li>
