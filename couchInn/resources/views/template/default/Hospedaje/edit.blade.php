@@ -11,12 +11,12 @@
         <br>
 
         {!! Form::label('provincia','Provincia:')!!}
-        {!! Form::select('provincia', $provincias ,$hospedaje->provincia->provincia,['class'=>'form-control']) !!}
+        {!! Form::select('provincia', $provincias ,$hospedaje->provincia->provincia,['class'=>'form-control chosen-select']) !!}
 
         <br>
 
         {!! Form::label('ciudad','Ciudad:')!!}
-        {!! Form::select('ciudad', $ciudades ,$hospedaje->ciudad->ciudad,['class'=>'form-control']) !!}
+        {!! Form::select('ciudad', $ciudades ,$hospedaje->ciudad->ciudad,['class'=>'form-control chosen-select']) !!}
 
 
         <br>
@@ -80,4 +80,10 @@
         {!! Form::submit('Editar Hospedaje',['class'=>'btn btn-default'])!!}
     </div>
     {!! Form::close()!!}
+@endsection
+
+@section('js')
+    <script>
+        $(".chosen-select").chosen({disable_search_threshold: 10});
+    </script>
 @endsection
