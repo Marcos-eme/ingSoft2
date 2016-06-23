@@ -5,7 +5,7 @@
 @section('inicio')
 
     {!! Form::open(['route'=>'usuario.donar.store','method'=>'POST']) !!}
-        <div class="form-group inicio-section" >
+        <div class="form-group inicio-section col-md-3" >
             <!-- EN LA CLASE FORM agrega como primer parametro el "id"
             como segundo parametro va a depender del tipo que sea: en el caso del text
             seria los mismo que hacer:
@@ -15,7 +15,7 @@
             -->
             {!! Form::label('monto','Monto a donar:')!!}
             {!! Form::number('monto',null,['class'=>'form-control','placeholder'=>'Ingresa el monto a donar','required']) !!}
-            {!! Form::submit('¡DONAR!',['class'=>'btn btn-default'])!!}
+            {!! Form::submit('¡DONAR!',['class'=>'btn btn-success'])!!}
 
         </div>
     {!! Form::close()!!}

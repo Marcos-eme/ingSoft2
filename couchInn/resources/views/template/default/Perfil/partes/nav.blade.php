@@ -29,10 +29,6 @@
                     <li>
                         <a class="page-scroll" href="#mas_visitados">Mas visitados</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#mas_visitados">Mas viasdasdasdsasitados</a>
-                    </li>
-
                 </ul>
                 @if(Auth::User())
                     <ul class="nav navbar-nav navbar-right">
