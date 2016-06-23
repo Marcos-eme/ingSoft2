@@ -20,6 +20,9 @@
                             <p>{{$hospedaje->descripcion}}</p>
                             <a href="{{route('usuario.hospedaje.edit',$hospedaje)}}" class="btn btn-success">editar hospedaje</a>
                             <a href="{{route('usuario.hospedaje.index',$hospedaje->id)}}" class="btn btn-success">ver hospedaje</a>
+                            <a href="{{route('usuario.hospedaje.destroy',$hospedaje)}}" onclick="return confirm('¿seguro que desea eliminar este hospedaje?')"
+                                   class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></a>
+                            <a href="{{route('usuario.hospedaje.index',$hospedaje->id)}}" class="btn btn-success">ver hospedaje</a>
                         </div>
                         </div>
                     @endforeach

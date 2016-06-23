@@ -13,17 +13,13 @@
             <br>
         @endif
             {!! Form::label('tipo_hospedaje','Clase de hospedaje:')!!}
-            {!! Form::select('tipo_hospedaje', $tipo_hospedajes) !!}
+            {!! Form::select('tipo_hospedaje', $tipo_hospedajes,null,['class'=>'form-control chosen-select']) !!}
             <br>
-
             {!! Form::label('provincia','Provincia:')!!}
-            {!! Form::select('provincia', $provincias ,null,['class'=>'form-control']) !!}
-
+            {!! Form::select('provincia', $provincias ,null,['class'=>'form-control chosen-select']) !!}
             <br>
-
             {!! Form::label('ciudad','Ciudad:')!!}
-            {!! Form::select('ciudad', $ciudades ,null,['class'=>'form-control']) !!}
-
+            {!! Form::select('ciudad', $ciudades ,null,['class'=>'form-control chosen-select']) !!}
 
             <br>
 
@@ -67,4 +63,14 @@
         {!! Form::submit('AgregarHospedaje',['class'=>'btn btn-default'])!!}
     </div>
     {!! Form::close()!!}
+
+
 @endsection
+
+@section('js')
+    <script>
+        $(".chosen-select").chosen({disable_search_threshold: 10});
+    </script>
+@endsection
+
+

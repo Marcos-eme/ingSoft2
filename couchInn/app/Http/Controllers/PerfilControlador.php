@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Usuario;
+
 use App\Http\Requests\PerfilRequest;
+use App\Donacion;
+use Illuminate\Http\Request;
 use Auth;
 use App\Http\Requests;
 use Laracasts\Flash\Flash;
@@ -13,9 +16,13 @@ class PerfilControlador extends Controller
     public function index(){
             $user = Auth::User();
             $hospedajes = Auth::User()->hospedajes;
-            return view('template.default.Perfil.perfil_main')->with('hospedajes', $hospedajes)
-                                                              ->with('user', $user);
-     
+            $donaciones = Auth::User()->donaciones;
+            return view('template.default.Perfil.perfil_main')
+                ->with('hospedajes', $hospedajes)
+                ->with('donaciones', $donaciones)
+                ->with('user',$user);
+            
+
 }
     public function create($id){
 
