@@ -37,10 +37,10 @@
                             <li ><a data-toggle="tab" href="#mis_viajes" aria-controls="mis_viajes">Mis viajes</a></li>
                             <li ><a data-toggle="tab" href="#mis_reservas" aria-controls="mis_reservas">Mis reservas</a></li>
                             <li ><a data-toggle="tab" href="#mis_donaciones" aria-controls="mis_donaciones">Mis donaciones</a></li>
-
                     </ul>
                     <div class="tab-content">
                         <div id="mis_datos"  class="tab-pane active">
+                            @include('flash::message')
                             @include('template.default.Perfil.partes.mis_datos')
                         </div>
                         <div id="mis_hospedajes"  class="tab-pane">

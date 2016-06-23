@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <h3>Nombre</h3>
-    {{Auth::User()->nombre}}
+    {{$user->nombre}}
     <h3>Apellido</h3>
     {{Auth::User()->apellido}}
     <h3>Mail</h3>
@@ -8,7 +8,7 @@
     @if($hospedajes->count()>0)
           <h3>Descripcion</h3>
     @endif
-    <a href="#" class="btn btn-success">Editar perfil</a>
+    <a href="{{route('usuario.perfil.edit',$user->id)}}" class="btn btn-success">Editar perfil</a>
 
     </table>
 </div>
