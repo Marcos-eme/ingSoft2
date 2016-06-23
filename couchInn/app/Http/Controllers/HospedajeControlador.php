@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Ciudad;
 use App\Usuario;
+use App\Provincia;
 use Illuminate\Http\Request;
 use Auth;
 use Validator;
@@ -75,15 +77,25 @@ class HospedajeControlador extends Controller
 
     public function create(){
         $tipo_hospedajes =Tipo_hospedaje::all();
+        $provincias = Provincia::all();
+        $ciudades= Ciudad::all();
         $array=array();
+        $arrayP=array();
+        $arrayC=array();
+        foreach ($provincias as $provincia){
+            $arrayP[$provincia->id]=$provincia->provincia;
+        }
         foreach ($tipo_hospedajes as $tipo_hospedaje){
             $array[$tipo_hospedaje->id]=$tipo_hospedaje->tipo;
         }
-
-
+        foreach ($ciudades as $ciudad){
+            $arrayC[$ciudad->id]=$ciudad->ciudad;
+        }
         return view('template.default.Hospedaje.create')
             ->with('usuario',Auth::User())
-            ->with('tipo_hospedajes',$array);
+            ->with('tipo_hospedajes',$array)
+            ->with('provincias',$arrayP)
+            ->with('ciudades',$arrayC);
     }
 
     public function store(Request $request){
@@ -97,6 +109,8 @@ class HospedajeControlador extends Controller
             $hospedaje->fill($request->all());
             $hospedaje->usuario_id=Auth::User()->id;
             $hospedaje->tipo_hospedaje_id=$request->tipo_hospedaje;
+            $hospedaje->provincia_id=$request->provincia;
+            $hospedaje->ciudad_id=$request->ciudad;
             $hospedaje->save();
         }catch (Exception $e){
             dd('error al guardar hospedaje  '.$e);
@@ -115,7 +129,6 @@ class HospedajeControlador extends Controller
         }catch (Exception $e){
             dd('error al guardar imagen  '.$e);
         }
-
         Flash::success('se ha agregado el hospedaje con exito');
         return redirect()->route('usuario.perfil.index');
     }
