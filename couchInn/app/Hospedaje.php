@@ -12,7 +12,7 @@ class Hospedaje extends Model implements SluggableInterface
 
 
     protected  $table ="hospedaje";
-    protected  $fillable =['provincia','ciudad','calle','numero',
+    protected  $fillable =['provincia_id','ciudad_id','calle','numero',
         'capacidad','descripcion','wifi','cable','baños','habitaciones'
         ,'tipo_cama','tipo_habitacion','tipo_hospedaje_id','usuario_id','baja_logica'];
 
@@ -24,6 +24,14 @@ class Hospedaje extends Model implements SluggableInterface
 
     public function usuario(){
         return $this->belongsTo('App\Usuario');
+    }
+
+    public function ciudad(){
+        return $this->belongsTo('App\Ciudad');
+    }
+
+    public function provincia(){
+        return $this->belongsTo('App\Provincia');
     }
 
     public function tipoHospedaje(){
