@@ -1,4 +1,9 @@
 
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
 INSERT INTO `provincia` (`id`, `provincia`) VALUES
 (1, 'Buenos Aires'),
 (2, 'Buenos Aires-GBA'),
@@ -27,6 +32,11 @@ INSERT INTO `provincia` (`id`, `provincia`) VALUES
 (25, 'Tucumán');
 
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> refs/remotes/origin/master
 INSERT INTO `ciudad` (`id`, `provincia_id`, `ciudad`) VALUES
 (1, 1, '25 de Mayo'),
 (2, 1, '3 de febrero'),
@@ -2101,6 +2111,11 @@ INSERT INTO `ciudad` (`id`, `provincia_id`, `ciudad`) VALUES
 (2071, 22, 'Palacios'),
 (2072, 22, 'Pavón'),
 (2073, 22, 'Pavón Arriba');
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> refs/remotes/origin/master
 INSERT INTO `ciudad` (`id`, `provincia_id`, `ciudad`) VALUES
 (2074, 22, 'Pedro Gómez Cello'),
 (2075, 22, 'Pérez'),
