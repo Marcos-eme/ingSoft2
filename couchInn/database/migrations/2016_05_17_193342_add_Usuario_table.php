@@ -20,6 +20,7 @@ class AddUsuarioTable extends Migration
             $table->string('foto')->nullable();
             $table->string('email')->unique();
             $table->string('password');
+            $table->boolean('baja_logica')->default(FALSE);
             $table->rememberToken();
             $table->timestamps();
 

@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'usuario',
     ],
 
     /*
@@ -96,7 +96,7 @@ return [
     */
 
     'passwords' => [
-        'user' => [
+        'usuario' => [
             'provider' => 'users',
             'email' => 'auth.emails.password',
             'table' => 'password_resets',
