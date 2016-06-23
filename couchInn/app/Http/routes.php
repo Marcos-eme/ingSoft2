@@ -62,15 +62,12 @@ Route::group(['prefix'=> 'usuario'],function(){
     Route::resource('hospedaje','HospedajeControlador');
     Route::resource('donar','DonacionControlador');
 
-<<<<<<< HEAD
+
     Route::get('hospedaje/{id}/destroy',[
         'uses'=>'HospedajeControlador@destroy',
         'as'=>'usuario.hospedaje.destroy'
     ]);
-
-=======
     
->>>>>>> refs/remotes/origin/master
     Route::get('hospedaje/{id}/index',[
         'uses'=>'HospedajeControlador@index',
         'as'=>'usuario.hospedaje.index'
