@@ -8,7 +8,6 @@
             <br> <br>
             <div class="pagination">
             <div class="row">
-                @include('flash::message')
                 @include('template.default.Perfil.partes.errores')
                 @if($hospedajes->count()>0)
                  <a href="{{route('usuario.hospedaje.create')}}" class="btn btn-success" ">Agregar Hospedaje</a>
