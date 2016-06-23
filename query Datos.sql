@@ -1,9 +1,4 @@
 
---
--- Estructura de tabla para la tabla `provincias`
---
-
-
 INSERT INTO `provincia` (`id`, `provincia`) VALUES
 (1, 'Buenos Aires'),
 (2, 'Buenos Aires-GBA'),
