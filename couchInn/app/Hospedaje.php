@@ -12,9 +12,8 @@ class Hospedaje extends Model implements SluggableInterface
 
 
     protected  $table ="hospedaje";
-    protected  $fillable =['provincia_id','ciudad_id','calle','numero',
-        'capacidad','descripcion','wifi','cable','baños','habitaciones'
-        ,'tipo_cama','tipo_habitacion','tipo_hospedaje_id','usuario_id','baja_logica'];
+    protected  $fillable =['calle','numero','capacidad','descripcion','wifi','cable','baños','habitaciones'
+        ,'tipo_cama','tipo_habitacion','tipo_hospedaje_id','usuario_id','provincia_id','ciudad_id','baja_logica'];
 
     protected $sluggable = [
         'build_from' => 'provincia',

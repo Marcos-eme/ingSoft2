@@ -5,8 +5,8 @@
     <div class="jumbotron">
     <h1 class="text-center">Hola mi nombre es {{$hospedaje->usuario->nombre.' '.$hospedaje->usuario->apellido}}</h1>
     <h2 class="text-center">Tengo un/a {{$hospedaje->tipoHospedaje->tipo}}</h2>
-    <h3 class="text-center">En la provincia de {{$hospedaje->provincia}}</h3>
-    <h3 class="text-center">Ciudad {{$hospedaje->ciudad}}</h3>
+    <h3 class="text-center">En la provincia de {{$hospedaje->provincia->provincia}}</h3>
+    <h3 class="text-center">Ciudad {{$hospedaje->ciudad->ciudad}}</h3>
     <br>
     </div>
     <p><bold>Calle: </bold>{{$hospedaje->calle}}</p>

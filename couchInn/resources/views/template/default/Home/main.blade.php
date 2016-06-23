@@ -17,6 +17,10 @@
     <!-- Custom CSS -->
     <link href="{{asset('Bootstrap/css/scrolling-nav.css')}}" rel="stylesheet">
 
+    <!--CHOSEN ESTILOS-->
+    <link rel="stylesheet" href="{{asset('chosen/chosen.css')}}">
+
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -54,6 +58,10 @@
     $().ready(function(){
         $("#carousel_home").carousel({interval:5000,pause:false});});
 </script>
+
+<script src="{{asset('chosen/chosen.jquery.js')}}"></script>
+@yield('js')
+
 </body>
 
 </html>

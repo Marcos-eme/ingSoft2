@@ -21,14 +21,29 @@ class HospedajeControlador extends Controller
 {
     public function edit($request){
         $hospedaje = Hospedaje::find($request);
-        $tipo_hospedajes= Tipo_hospedaje::all();
+              
+        $tipo_hospedajes =Tipo_hospedaje::all();
+        $provincias = Provincia::all();
+        $ciudades= Ciudad::all();
         $array=array();
+        $arrayP=array();
+        $arrayC=array();
+        foreach ($provincias as $provincia){
+            $arrayP[$provincia->id]=$provincia->provincia;
+        }
         foreach ($tipo_hospedajes as $tipo_hospedaje){
-            $array[$tipo_hospedaje->id]=$tipo_hospedaje->tipo;        }
+            $array[$tipo_hospedaje->id]=$tipo_hospedaje->tipo;
+        }
+        foreach ($ciudades as $ciudad){
+            $arrayC[$ciudad->id]=$ciudad->ciudad;
+        }
+        
 
         return view('template.default.Hospedaje.edit')
             ->with('tipo_hospedajes',$array)
-            ->with('hospedaje',$hospedaje);
+            ->with('hospedaje',$hospedaje)
+            ->with('provincias',$arrayP)
+            ->with('ciudades',$arrayC);
     }
 
     public function index($request){
@@ -109,8 +124,9 @@ class HospedajeControlador extends Controller
             $hospedaje->fill($request->all());
             $hospedaje->usuario_id=Auth::User()->id;
             $hospedaje->tipo_hospedaje_id=$request->tipo_hospedaje;
-            $hospedaje->provincia_id=$request->provincia;
             $hospedaje->ciudad_id=$request->ciudad;
+            $hospedaje->provincia_id=$request->provincia;;
+
             $hospedaje->save();
         }catch (Exception $e){
             dd('error al guardar hospedaje  '.$e);
@@ -139,6 +155,8 @@ class HospedajeControlador extends Controller
         try{
             $hospedaje->fill($request->all());
             $hospedaje->tipo_hospedaje_id=$request->tipo_hospedaje;
+            $hospedaje->provincia_id=$request->provincia;
+            $hospedaje->ciudad_id=$request->ciudad;
             $hospedaje->save();
             if($request->file('imagen')!=null){
                 $file=$request->file('imagen');
