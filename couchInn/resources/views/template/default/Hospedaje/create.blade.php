@@ -36,7 +36,7 @@
         {!! Form::textArea('descripcion',null,['class'=>'form-control','placeholder'=>'Breve descripcion del hospedaje','required']) !!}
         <br>
         {!! Form::label('imagen','Imagen Hospedaje:')!!}
-        {!! Form::file('imagen',['class'=>'form-control']) !!}
+        {!! Form::file('imagen',['class'=>'form-control','required']) !!}
         <br>
 
 
