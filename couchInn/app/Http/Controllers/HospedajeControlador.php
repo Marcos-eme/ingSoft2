@@ -51,6 +51,8 @@ class HospedajeControlador extends Controller
         return view('template.default.Hospedaje.index')
             ->with('hospedaje',$hospedaje);
     }
+    
+    }
 
     public function imagenes($id){
         $hospedaje = Hospedaje::find($id);

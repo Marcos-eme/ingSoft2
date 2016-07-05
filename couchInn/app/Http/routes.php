@@ -20,7 +20,11 @@ GET , POST , PUT , DELETE , RESOURCE
 */
 
 Route::get('/', function () {
-    return view('index');
+    $arrayP=array();
+    foreach (\App\Provincia::all() as $provincia){
+        $arrayP[$provincia->id]=$provincia->provincia;
+    }
+    return view('index')-> with('provincias',$arrayP);
 });
 
 
@@ -87,6 +91,12 @@ Route::group(['prefix'=> 'usuario'],function(){
         'uses'=>'HospedajeControlador@deleteImage',
         'as'=>'usuario.hospedaje.deleteImage'
     ]);
+
+    Route::post('hospedaje/searchHome/{provincia?}',[
+        'uses'=>'HospedajeControlador@searchHome',
+        'as'=>'usuario.hospedaje.searchHome'
+    ]);
+
 
 
 
