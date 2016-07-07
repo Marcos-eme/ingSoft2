@@ -15,7 +15,8 @@
                         <div class="form-control">
                             <div class="row search-btn-on-top">
                                 {!! Form::select('provincia', $provincias ,null)!!}
-                                {!! Form::text('llegada',null,['class'=>'datepicker ','placeholder'=>'llegada']) !!}
+                                {!! Form::text('llegada',null,['class'=>'datepicker ','placeholder'=>'Llegada']) !!}
+                                {!! Form::text('partida',null,['class'=>'datepicker ','placeholder'=>'Partida']) !!}
                                 {!! Form::submit('Buscar',['class'=>' btn-default btn-lg'])!!}
                             </div>
 
