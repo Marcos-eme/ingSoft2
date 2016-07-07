@@ -12,10 +12,14 @@
 
 
                         {!! Form::open(['route'=>'usuario.hospedaje.searchHome','method'=>'post']) !!}
+                        <div class="form-control">
+                            <div class="row search-btn-on-top">
+                                {!! Form::select('provincia', $provincias ,null)!!}
+                                {!! Form::text('llegada',null,['class'=>'datepicker ','placeholder'=>'llegada']) !!}
+                                {!! Form::submit('Buscar',['class'=>' btn-default btn-lg'])!!}
+                            </div>
 
-                        {!! Form::select('provincia', $provincias ,null,['class'=>'form-control input-lg search-bar-on-top'])!!}
-
-                        {!! Form::submit('Buscar',['class'=>'btn-default text-left search btn-lg search search-btn-on-top'])!!}
+                        </div>
                         {!! Form::close()!!}
 
 
@@ -42,6 +46,8 @@
 @section('js')
     <script>
         $(".chosen-select").chosen({disable_search_threshold: 10});
-
+        $(function() {
+            $( ".datepicker" ).datepicker();
+        });
     </script>
 @endsection
