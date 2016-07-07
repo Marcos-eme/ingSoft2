@@ -51,6 +51,10 @@ class HospedajeControlador extends Controller
         return view('template.default.Hospedaje.index')
             ->with('hospedaje',$hospedaje);
     }
+    
+    public function searchHome(Request $request,$id ='lala'){
+        dd($request->all());
+    }
 
     public function imagenes($id){
         $hospedaje = Hospedaje::find($id);
@@ -125,7 +129,7 @@ class HospedajeControlador extends Controller
             $hospedaje->usuario_id=Auth::User()->id;
             $hospedaje->tipo_hospedaje_id=$request->tipo_hospedaje;
             $hospedaje->ciudad_id=$request->ciudad;
-            $hospedaje->provincia_id=$request->provincia;;
+            $hospedaje->provincia_id=$request->provincia;
 
             $hospedaje->save();
         }catch (Exception $e){
@@ -174,6 +178,19 @@ class HospedajeControlador extends Controller
 
         Flash::success('se ha agregado el hospedaje con exito');
         return redirect()->route('usuario.perfil.index');
+    }
+
+    public function destroy($id){
+
+        $hospedaje = Hospedaje::find($id);
+        $hospedaje->delete();
+        Flash::error('Se ha eliminado el hospedaje correctamente');
+        return redirect()->route('usuario.perfil.index');
+
+    }
+
+    public function show($id){
+
     }
 
 }
