@@ -12,7 +12,7 @@
 
 
                         {!! Form::open(['route'=>'home.searchHome','method'=>'post']) !!}
-                        <div class="form-control" name="f1">
+                        <div name="f1">
                             <div class="row search-btn-on-top">
                                 {!! Form::select('provincia', $provincias,null,['placeholder'=>'elige una provincia'])!!}
                                 {!! Form::select('ciudad', $ciudades,null,['placeholder'=>'elige una ciudad'])!!}
