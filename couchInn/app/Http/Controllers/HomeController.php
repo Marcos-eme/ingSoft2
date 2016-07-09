@@ -13,10 +13,14 @@ class HomeController extends Controller
     public function searchHome(Request $request, $id = 'lalas'){
         //$hospedajes= DB::table('hospedaje')->get();
         $hospedajes= Hospedaje::all();
-
-        if($this->isNullOrEmptyString($request->provincia)){
-
+        if(!$this->isNullOrEmptyString($request->ciudad) ){
+            $hospedajes=Hospedaje::SearchCiudad($request->ciudad)->get();
+        }elseif(!$this->isNullOrEmptyString($request->provincia)){
+            $hospedajes=Hospedaje::SearchProvincia($request->provincia)->get();
         }
+
+
+
 
         return view('template.default.Busqueda.index')->with('hospedajes',$hospedajes);
     }
