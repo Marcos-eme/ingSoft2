@@ -52,9 +52,7 @@ class HospedajeControlador extends Controller
             ->with('hospedaje',$hospedaje);
     }
     
-    public function searchHome(Request $request,$id ='lala'){
-        dd($request->all());
-    }
+    
 
     public function imagenes($id){
         $hospedaje = Hospedaje::find($id);

@@ -40,7 +40,6 @@
 
 @include('template.default.Home.partes.nav')
 
-@include('flash::message')
 @include('template.basicoAdmin.partes.errores')
 
 @yield('inicio')

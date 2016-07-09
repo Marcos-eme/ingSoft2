@@ -11,16 +11,18 @@
                         <img src="images/couchinn.png" width="50%" class="img-responsive img-on-top" alt="Responsive image">
 
 
-                        {!! Form::open(['route'=>'usuario.hospedaje.searchHome','method'=>'post']) !!}
-                        <div class="form-control">
+                        {!! Form::open(['route'=>'home.searchHome','method'=>'post']) !!}
+                        <div class="form-control" name="f1">
                             <div class="row search-btn-on-top">
-                                {!! Form::select('provincia', $provincias ,null)!!}
+                                {!! Form::select('provincia', $provincias,null,['placeholder'=>'elige una provincia'])!!}
+                                {!! Form::select('ciudad', $ciudades,null,['placeholder'=>'elige una ciudad'])!!}
                                 {!! Form::text('llegada',null,['class'=>'datepicker ','placeholder'=>'Llegada']) !!}
                                 {!! Form::text('partida',null,['class'=>'datepicker ','placeholder'=>'Partida']) !!}
                                 {!! Form::submit('Buscar',['class'=>' btn-default btn-lg'])!!}
                             </div>
 
                         </div>
+
                         {!! Form::close()!!}
 
 
@@ -50,5 +52,7 @@
         $(function() {
             $( ".datepicker" ).datepicker();
         });
+
+
     </script>
 @endsection
