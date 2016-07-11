@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Reserva;
+use Auth;
 use App\Hospedaje;
 
 use App\Http\Requests;
@@ -19,13 +21,14 @@ class HomeController extends Controller
             $hospedajes=Hospedaje::SearchProvincia($request->provincia)->get();
         }
 
-
-
-
         return view('template.default.Busqueda.index')->with('hospedajes',$hospedajes);
     }
 
     function isNullOrEmptyString($question){
         return (!isset($question) || trim($question)==='');
     }
+
+    
+
+
 }

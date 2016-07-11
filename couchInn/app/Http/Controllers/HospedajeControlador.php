@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Ciudad;
+use App\Reserva;
 use App\Usuario;
 use App\Provincia;
 use Illuminate\Http\Request;
+use App\Http\Requests\reservaRequest;
 use Auth;
+use Monolog\Handler\ElasticSearchHandler;
 use Validator;
 use App\Tipo_hospedaje;
 use App\Hospedaje;
 use App\Imagen;
+use DateTime;
 
 use App\Http\Requests;
 use Laracasts\Flash\Flash;
@@ -46,10 +50,16 @@ class HospedajeControlador extends Controller
             ->with('ciudades',$arrayC);
     }
 
-    public function index($request){
+    public function index($request,$error = null){
         $hospedaje = Hospedaje::find($request);
-        return view('template.default.Hospedaje.index')
-            ->with('hospedaje',$hospedaje);
+        if($error==null){
+            return view('template.default.Hospedaje.index')
+                ->with('hospedaje',$hospedaje);
+        }else{
+            Flash::error($error);
+            return view('template.default.Hospedaje.index')
+                ->with('hospedaje',$hospedaje);
+        }
     }
     
     
@@ -187,7 +197,30 @@ class HospedajeControlador extends Controller
 
     }
 
-    public function show($id){
+    public function reservar (reservaRequest $request,$id){
+        $hospedaje = Hospedaje::find($id);
+        try {
+            if (strtotime($request->fechaInicio) < strtotime(Date('m:d:y'))) {//corrobora si es mayor al dia actual
+                throw new Exception('tiene que ser un dia posterior');
+            }
+            if (strtotime($request->fechaInicio) > strtotime($request->fechaFin)) {//corrobora si es mayor al dia actual
+                throw new Exception('la fecha de inicio debe ser anterior a la fecha de llegada');
+            }
+
+            //es posterior
+                $usuario = Auth::User();
+                $reserva = new Reserva;
+                $reserva->fill($request->all());
+
+
+                $reserva->usuario_id = $usuario->id;
+                $reserva->hospedaje_id = $hospedaje->id;
+                $reserva->Estado = 'Pendiente';
+
+        }catch (Exception $e){
+            return ($this->index($hospedaje->id,$e->getMessage())) ;
+        }
+
 
     }
 

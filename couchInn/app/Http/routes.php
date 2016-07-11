@@ -19,7 +19,7 @@ GET , POST , PUT , DELETE , RESOURCE
 
 */
 
-Route::get('/', function () {
+Route::get('/', [function () {
     $arrayP=array();
     foreach (\App\Provincia::all() as $provincia){
         $arrayP[$provincia->id]=$provincia->provincia;
@@ -33,7 +33,7 @@ Route::get('/', function () {
     return view('index')
         -> with('provincias',$arrayP) 
         ->with('ciudades',$arrayC);
-});
+}, 'as'=>'/']);
 
 
 Route::auth();
@@ -100,6 +100,11 @@ Route::group(['prefix'=> 'usuario'],function(){
         'as'=>'usuario.hospedaje.deleteImage'
     ]);
 
+    Route::post('hospedaje/reservar/{hospedaje}/{id?}',[
+        'uses'=>'HospedajeControlador@reservar',
+        'as'=>'usuario.hospedaje.reservar'
+    ]);
+
 });
 
 //Route::group(['prefix'=> 'home'],function(){
@@ -109,6 +114,8 @@ Route::group(['prefix'=> 'usuario'],function(){
         'uses'=>'HomeController@searchHome',
         'as'=>'home.searchHome'
     ]);
+
+
 //});
 
 
