@@ -23,13 +23,13 @@
                         <a class="page-scroll" href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#anfitrion">Anfitriones destacados</a>
+                        <a class="page-scroll" href="#anfitrion">Perfi</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#como_funciona">Como funciona</a>
+                        <a class="page-scroll" href="#como_funciona">Peasdlasd</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#mas_visitados">Mas visitados</a>
+                        <a class="page-scroll" href="#mas_visitados">Mas adsasdasd</a>
                     </li>
 
 

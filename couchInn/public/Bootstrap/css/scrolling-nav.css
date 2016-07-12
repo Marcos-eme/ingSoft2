@@ -27,42 +27,8 @@ html {
         padding: 0;
     }
 }
-.btn-custom-iniciar{
-    background-color: #9DAB20;
-    border-radius:0px;
-    padding:13px;
-    border-color: #FFFFFF;
 
-}
-.btn-custom-reg{
-    background-color: #788928;
-    border-radius:0px;
-    border-color: #FFFFFF;
 
-}
-
-.logo{
-    background-image: url(../../images/sillon.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position-y: center;
-    padding: 15px 24px;
-    height: 50px;
-
-}
-
-.text-color{
-    padding: 14px 24px;
-    border: 0 none;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #FFF !important;
-
-}
-.navbar-custom {
-    background-color: white;
-
-}
 .inicio-section {
     height: 100%;
     padding-top: 92px;

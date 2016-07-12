@@ -1,0 +1,63 @@
+
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+@media(min-width:767px) {
+    .navbar {
+
+        padding: 20px 0;
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+    }
+
+    .top-nav-collapse {
+        padding: 0;
+    }
+}
+
+
+
+.logo{
+    background-image: url(../../images/sillon.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: center;
+    padding: 15px 24px;
+    height: 50px;
+
+}
+.btn-custom-iniciar{
+    background-color: #9DAB20;
+    border-radius:0px;
+    padding:13px;
+    border-color: #FFFFFF;
+
+}
+.btn-custom-reg{
+    background-color: #788928;
+    border-radius:0px;
+    border-color: #FFFFFF;
+
+}
+
+.text-color{
+    padding: 14px 24px;
+     border: 0 none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #FFF !important;
+
+}
+.navbar-custom {
+    background-color: white;
+
+}

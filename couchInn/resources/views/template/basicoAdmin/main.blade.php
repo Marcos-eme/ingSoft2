@@ -5,6 +5,7 @@
     <title>@yield('titulo_pestaña') </title>
     <link rel="stylesheet" href="{{asset('Bootstrap/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('chosen/chosen.css')}}">
+    <link rel="stylesheet" href="{{asset('Bootstrap/css/navBar.css')}}" >
 
 </head>
 <body>

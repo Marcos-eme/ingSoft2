@@ -16,6 +16,7 @@
     <link href="{{asset('Bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{asset('Bootstrap/css/scrolling-nav.css')}}" rel="stylesheet">
+    <link href="{{asset('Bootstrap/css/navBar.css')}}" rel="stylesheet">
 
     <!--CHOSEN ESTILOS-->
     <link rel="stylesheet" href="{{asset('chosen/chosen.css')}}">

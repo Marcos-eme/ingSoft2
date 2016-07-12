@@ -3,7 +3,6 @@
 
 <head>
 
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -12,10 +11,7 @@
     <title>@yield('titulo_pestaña') </title>
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('Bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-
-    <link href="{{asset('Bootstrap/css/scrolling-nav.css')}}" rel="stylesheet">
-
-    <link href="{{asset('Bootstrap/css/perfil')}}" rel="stylesheet">
+    <link href="{{asset('Bootstrap/css/navBar.css')}}" rel="stylesheet">
 
 </head>
 
@@ -30,8 +26,7 @@
 
     <div class="container" >
         <div class="row">
-                <div class="col-md-12">
-                    <ul class="nav nav-tabs">
+                <div class="col-md-12"><ul class="nav nav-tabs">
                             <li class="active" ><a data-toggle="tab" href="#mis_datos" aria-controls="mis_datos">Mis datos</a></li>
                             <li ><a data-toggle="tab" href="#mis_hospedajes" aria-controls="mis_hospedajes">Mis hospedajes</a></li>
                             <li ><a data-toggle="tab" href="#mis_viajes" aria-controls="mis_viajes">Mis viajes</a></li>
