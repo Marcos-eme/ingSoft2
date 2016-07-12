@@ -60,5 +60,13 @@ class Hospedaje extends Model implements SluggableInterface
     public function disponibilidades (){
         return $this->hasMany('App\Disponibilidad');
     }
+
+    public function scopeSearchProvincia($query,$id){
+        return $query->where('provincia_id',$id);
+    }
+
+    public function scopeSearchCiudad($query,$id){
+        return $query->where('ciudad_id',$id);
+    }
    
 }

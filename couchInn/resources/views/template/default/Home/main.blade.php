@@ -20,6 +20,10 @@
     <!--CHOSEN ESTILOS-->
     <link rel="stylesheet" href="{{asset('chosen/chosen.css')}}">
 
+    <!--css de jquery para datepicker!-->
+    <link rel="stylesheet" href="{{asset('jquery-ui.structure.min.css')}}">
+    <link rel="stylesheet" href="{{asset('jquery-ui.theme.min.css')}}">
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,7 +40,6 @@
 
 @include('template.default.Home.partes.nav')
 
-@include('flash::message')
 @include('template.basicoAdmin.partes.errores')
 
 @yield('inicio')
@@ -60,6 +63,8 @@
 </script>
 
 <script src="{{asset('chosen/chosen.jquery.js')}}"></script>
+<script src="{{asset('jquery-ui.min.js')}}"></script>
+
 @yield('js')
 
 </body>

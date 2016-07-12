@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Ciudad;
+use App\Reserva;
 use App\Usuario;
 use App\Provincia;
 use Illuminate\Http\Request;
+use App\Http\Requests\reservaRequest;
 use Auth;
+use Monolog\Handler\ElasticSearchHandler;
 use Validator;
 use App\Tipo_hospedaje;
 use App\Hospedaje;
 use App\Imagen;
+use DateTime;
 
 use App\Http\Requests;
 use Laracasts\Flash\Flash;
@@ -46,11 +50,23 @@ class HospedajeControlador extends Controller
             ->with('ciudades',$arrayC);
     }
 
-    public function index($request){
-        $hospedaje = Hospedaje::find($request);
-        return view('template.default.Hospedaje.index')
-            ->with('hospedaje',$hospedaje);
+    public function index(Request $request,$id,$error = null){
+        $hospedaje = Hospedaje::find($id);
+        if($error == null){
+            return view('template.default.Hospedaje.index')
+                ->with('hospedaje',$hospedaje)
+                ->with('llegada',$request->llegada)
+                ->with('partida',$request->partida);
+        }else{
+            Flash::error($error);
+            return view('template.default.Hospedaje.index')
+                ->with('hospedaje',$hospedaje)
+                ->with('llegada',$request->llegada)
+                ->with('partida',$request->partida);
+        }
     }
+    
+    
 
     public function imagenes($id){
         $hospedaje = Hospedaje::find($id);
@@ -125,7 +141,7 @@ class HospedajeControlador extends Controller
             $hospedaje->usuario_id=Auth::User()->id;
             $hospedaje->tipo_hospedaje_id=$request->tipo_hospedaje;
             $hospedaje->ciudad_id=$request->ciudad;
-            $hospedaje->provincia_id=$request->provincia;;
+            $hospedaje->provincia_id=$request->provincia;
 
             $hospedaje->save();
         }catch (Exception $e){
@@ -185,7 +201,27 @@ class HospedajeControlador extends Controller
 
     }
 
-    public function show($id){
+    public function reservar (reservaRequest $request,$id){
+        $hospedaje = Hospedaje::find($id);
+        try {
+            if (date($request->fechaInicio) > date($request->fechaFin)) {//corrobora si es mayor al dia actual
+                throw new Exception('la fecha de inicio debe ser anterior a la fecha de llegada');
+            }
+
+            //es posterior
+                $usuario = Auth::User();
+                $reserva = new Reserva;
+                $reserva->fill($request->all());
+                $reserva->usuario_id = $usuario->id;
+                $reserva->hospedaje_id = $hospedaje->id;
+                $reserva->Estado = 'Pendiente';
+                //$reserva->save();
+                return redirect()->route('home.enviarReservaAnfitrion',['id'=>2,'tuvieja'=>50,'forro'=>'amsdakd']);
+
+        }catch (Exception $e){
+            return ($this->index($request,$id,$e->getMessage())) ;
+        }
+
 
     }
 

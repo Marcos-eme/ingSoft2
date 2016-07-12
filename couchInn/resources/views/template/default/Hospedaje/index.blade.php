@@ -2,6 +2,7 @@
 @section('titulo_pestaña','hospedaje')
 
 @section('contenido_container')
+
     <div class="jumbotron">
     <h1 class="text-center">Hola mi nombre es {{$hospedaje->usuario->nombre.' '.$hospedaje->usuario->apellido}}</h1>
     <h2 class="text-center">Tengo un/a {{$hospedaje->tipoHospedaje->tipo}}</h2>
@@ -42,5 +43,57 @@
     <p><bold>Habitaciones: </bold>{{$hospedaje->habitaciones}}</p>
     <p><bold>Tipo de Cama: </bold>{{$hospedaje->tipo_cama}}</p>
     <p><bold>Tipo de habitacion: </bold>{{$hospedaje->tipo_habitacion}}</p>
+    @if( Auth::User())
+    @if($hospedaje->usuario->id != Auth::User()->id)
+        <button type="button" class="btn btn-success btn-lg pull-right" data-toggle="modal" data-target="#myModal">Reservar</button>
+
+
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h3 class="modal-title">Reservar Hospedaje</h3>
+
+                    </div>
+                    <div class="modal-body">
+                        <p style="color:RED;font-weight: bold">*Obligatorio agregar fecha de entrada y de salida del hospedaje</p>
+                        {!! Form::open(['route'=> ['usuario.hospedaje.reservar', $hospedaje ],'method'=>'post','class'=>'modal-body']) !!}
+                        @if($llegada=='')
+                                {!! Form::text('fechaInicio',null,['class'=>'datepicker ','placeholder'=>'llegada','required']) !!}
+                            @else
+                                {!! Form::text('fechaInicio',$llegada,['class'=>'datepicker ','required']) !!}
+                            @endif
+
+                            @if($partida== '' )
+                                {!! Form::text('fechaFin',null,['class'=>'datepicker ','placeholder'=>'partida','required']) !!}
+                            @else
+                                {!! Form::text('fechaFin',$partida,['class'=>'datepicker ','required']) !!}
+                            @endif
+                            {!! Form::submit('Reservar',['class'=>' btn-default btn-lg'])!!}
+
+                        {!! Form::close()!!}
+
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    @endif
+    @endif
 
 @endsection
+
+@section('js')
+    <script>
+        $(function() {
+            $( ".datepicker" ).datepicker({dateFormat:'dd/mm/yy', minDate: 0, maxDate: "+2y"});
+        });
+    </script>
+@endsection
+
