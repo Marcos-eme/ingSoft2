@@ -27,6 +27,7 @@
                                             <h3 class="text-center">{{$hospedaje->descripcion}}</h3>
 
                                         </div>
+                                        <a href="{{route('usuario.hospedaje.index',['hospedaje'=>$hospedaje,'llegada'=>$llegada,'partida'=>$partida])}}" class="btn btn-success pull-right" >ver</a>
                                     </div>
                                 </div>
                             </div>
