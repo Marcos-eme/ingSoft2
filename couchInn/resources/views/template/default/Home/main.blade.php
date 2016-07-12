@@ -21,7 +21,7 @@
     <!--CHOSEN ESTILOS-->
     <link rel="stylesheet" href="{{asset('chosen/chosen.css')}}">
 
-
+    <!--css de jquery para datepicker!-->
     <link rel="stylesheet" href="{{asset('jquery-ui.structure.min.css')}}">
     <link rel="stylesheet" href="{{asset('jquery-ui.theme.min.css')}}">
 
@@ -41,7 +41,6 @@
 
 @include('template.default.Home.partes.nav')
 
-@include('flash::message')
 @include('template.basicoAdmin.partes.errores')
 
 @yield('inicio')

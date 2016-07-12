@@ -19,13 +19,21 @@ GET , POST , PUT , DELETE , RESOURCE
 
 */
 
-Route::get('/', function () {
+Route::get('/', [function () {
     $arrayP=array();
     foreach (\App\Provincia::all() as $provincia){
         $arrayP[$provincia->id]=$provincia->provincia;
     }
-    return view('index')-> with('provincias',$arrayP);
-});
+    $arrayC=array();
+    foreach (\App\Ciudad::all() as $ciudad){
+        $arrayC[$ciudad->id]=$ciudad->ciudad;
+    }
+    $arrayC[0]='elige ciudad';
+    $arrayP[0]='elige provincia';
+    return view('index')
+        -> with('provincias',$arrayP) 
+        ->with('ciudades',$arrayC);
+}, 'as'=>'/']);
 
 
 Route::auth();
@@ -92,21 +100,28 @@ Route::group(['prefix'=> 'usuario'],function(){
         'as'=>'usuario.hospedaje.deleteImage'
     ]);
 
-    Route::post('hospedaje/searchHome/{provincia?}',[
-        'uses'=>'HospedajeControlador@searchHome',
-        'as'=>'usuario.hospedaje.searchHome'
+    Route::post('hospedaje/reservar/{hospedaje}/{id?}',[
+        'uses'=>'HospedajeControlador@reservar',
+        'as'=>'usuario.hospedaje.reservar'
     ]);
-
-
-
 
 });
 
-/*
-Route::get('auth/login', 'Auth/AuthController@getLogin' );
-Route::post('auth/login', 'Auth/AuthController@postLogin' );
-Route::get('auth/logout', 'Auth/AuthController@getLogout' );
-*/
+//Route::group(['prefix'=> 'home'],function(){
+    Route::resource('home','HomeController');
+
+    Route::post('home/searchHome/{provincia?}',[
+        'uses'=>'HomeController@searchHome',
+        'as'=>'home.searchHome'
+    ]);
+
+    Route::get('home/enviarReservaAnfitrion/{id?}/{reserva?}',[
+        'uses'=>'HomeController@enviarReservaAnfitrion',
+        'as'=>'home.enviarReservaAnfitrion'
+    ]);
+
+
+//});
 
 
 
