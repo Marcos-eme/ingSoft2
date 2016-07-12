@@ -115,6 +115,11 @@ Route::group(['prefix'=> 'usuario'],function(){
         'as'=>'home.searchHome'
     ]);
 
+    Route::get('home/enviarReservaAnfitrion/{id?}/{reserva?}',[
+        'uses'=>'HomeController@enviarReservaAnfitrion',
+        'as'=>'home.enviarReservaAnfitrion'
+    ]);
+
 
 //});
 

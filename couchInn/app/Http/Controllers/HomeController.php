@@ -21,11 +21,17 @@ class HomeController extends Controller
             $hospedajes=Hospedaje::SearchProvincia($request->provincia)->get();
         }
 
-        return view('template.default.Busqueda.index')->with('hospedajes',$hospedajes);
+        return view('template.default.Busqueda.index')->with('hospedajes',$hospedajes)
+            ->with('llegada',$request->llegada)
+            ->with('partida',$request->partida);
     }
 
     function isNullOrEmptyString($question){
         return (!isset($question) || trim($question)==='');
+    }
+
+    public function enviarReservaAnfitrion($request, Request $lala){
+        dd($request);
     }
 
     

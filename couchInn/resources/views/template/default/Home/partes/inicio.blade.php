@@ -50,7 +50,7 @@
     <script>
         $(".chosen-select").chosen({disable_search_threshold: 10});
         $(function() {
-            $( ".datepicker" ).datepicker();
+            $( ".datepicker" ).datepicker({dateFormat:'dd/mm/yy', minDate: 0, maxDate: "+2y"});
         });
 
 

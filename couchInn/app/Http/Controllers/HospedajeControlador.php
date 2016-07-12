@@ -50,15 +50,19 @@ class HospedajeControlador extends Controller
             ->with('ciudades',$arrayC);
     }
 
-    public function index($request,$error = null){
-        $hospedaje = Hospedaje::find($request);
-        if($error==null){
+    public function index(Request $request,$id,$error = null){
+        $hospedaje = Hospedaje::find($id);
+        if($error == null){
             return view('template.default.Hospedaje.index')
-                ->with('hospedaje',$hospedaje);
+                ->with('hospedaje',$hospedaje)
+                ->with('llegada',$request->llegada)
+                ->with('partida',$request->partida);
         }else{
             Flash::error($error);
             return view('template.default.Hospedaje.index')
-                ->with('hospedaje',$hospedaje);
+                ->with('hospedaje',$hospedaje)
+                ->with('llegada',$request->llegada)
+                ->with('partida',$request->partida);
         }
     }
     
@@ -200,10 +204,7 @@ class HospedajeControlador extends Controller
     public function reservar (reservaRequest $request,$id){
         $hospedaje = Hospedaje::find($id);
         try {
-            if (strtotime($request->fechaInicio) < strtotime(Date('m:d:y'))) {//corrobora si es mayor al dia actual
-                throw new Exception('tiene que ser un dia posterior');
-            }
-            if (strtotime($request->fechaInicio) > strtotime($request->fechaFin)) {//corrobora si es mayor al dia actual
+            if (date($request->fechaInicio) > date($request->fechaFin)) {//corrobora si es mayor al dia actual
                 throw new Exception('la fecha de inicio debe ser anterior a la fecha de llegada');
             }
 
@@ -211,14 +212,14 @@ class HospedajeControlador extends Controller
                 $usuario = Auth::User();
                 $reserva = new Reserva;
                 $reserva->fill($request->all());
-
-
                 $reserva->usuario_id = $usuario->id;
                 $reserva->hospedaje_id = $hospedaje->id;
                 $reserva->Estado = 'Pendiente';
+                //$reserva->save();
+                return redirect()->route('home.enviarReservaAnfitrion',['id'=>2,'tuvieja'=>50,'forro'=>'amsdakd']);
 
         }catch (Exception $e){
-            return ($this->index($hospedaje->id,$e->getMessage())) ;
+            return ($this->index($request,$id,$e->getMessage())) ;
         }
 
 
