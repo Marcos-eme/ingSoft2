@@ -13,6 +13,10 @@ class Pregunta extends Model
         return $this->belongsTo('App\Hospedaje');
     }
 
+    public function respuesta(){
+        return $this->hasOne('App\Pregunta');
+    }
+
     public function usuario(){
         return $this->belongsTo('App\Usuario');
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ciudad;
+use App\Pregunta;
 use App\Reserva;
 use App\Usuario;
 use App\Provincia;
@@ -23,6 +24,10 @@ use PhpParser\Node\Stmt\TryCatch;
 
 class HospedajeControlador extends Controller
 {
+    /**
+     * @param $request
+     * @return mixed
+     */
     public function edit($request){
         $hospedaje = Hospedaje::find($request);
               
@@ -48,10 +53,14 @@ class HospedajeControlador extends Controller
             ->with('hospedaje',$hospedaje)
             ->with('provincias',$arrayP)
             ->with('ciudades',$arrayC);
+
     }
 
     public function index(Request $request,$id,$error = null){
         $hospedaje = Hospedaje::find($id);
+        $question = new Pregunta();
+        $question ->hospedaje_id = $hospedaje->id;
+        $question -> usuario_id = Auth::User()->id;
         if($error == null){
             return view('template.default.Hospedaje.index')
                 ->with('hospedaje',$hospedaje)
@@ -62,7 +71,8 @@ class HospedajeControlador extends Controller
             return view('template.default.Hospedaje.index')
                 ->with('hospedaje',$hospedaje)
                 ->with('llegada',$request->llegada)
-                ->with('partida',$request->partida);
+                ->with('partida',$request->partida)
+                ;
         }
     }
     
@@ -222,6 +232,22 @@ class HospedajeControlador extends Controller
             return ($this->index($request,$id,$e->getMessage())) ;
         }
 
+
+    }
+
+    public function preguntar(Request $request, $hospedaje)
+    {
+        $pregunta = new Pregunta();
+        $pregunta->pregunta = $request->pregunta;
+        $pregunta->hospedaje_id = $hospedaje;
+        $pregunta->usuario_id = Auth::User()->id;
+        //dd('Primero usuario despues id hospedaje : ' . $pregunta->usuario_id . ' '. $pregunta->hospedaje_id . ' textito: ' . $pregunta->pregunta) ;
+        $pregunta->save();
+        Flash::success('Se ha preguntado con éxito');
+        return view('template.default.Hospedaje.index')
+            ->with('hospedaje', Hospedaje::find($hospedaje))
+            ->with('llegada',null)
+            ->with('partida',null);
 
     }
 

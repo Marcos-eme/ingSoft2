@@ -1,7 +1,8 @@
-@extends('template.basicoAdmin.main')
+@extends('template.default.home.main')
 @section('titulo_pestaña','hospedaje')
 
-@section('contenido_container')
+@section('anfitriones')
+
 
     <div class="jumbotron">
     <h1 class="text-center">Hola mi nombre es {{$hospedaje->usuario->nombre.' '.$hospedaje->usuario->apellido}}</h1>
@@ -48,6 +49,8 @@
         <button type="button" class="btn btn-success btn-lg pull-right" data-toggle="modal" data-target="#myModal">Reservar</button>
 
 
+
+
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
@@ -87,6 +90,38 @@
     @endif
     @endif
 
+@endsection
+
+@section('como_funciona')
+    {!! Form::open(['route'=>['usuario.hospedaje.preguntar',$hospedaje],'method'=>'post']) !!}
+    {!! Form::label('pregunta','Pregunta')!!}
+    {!! Form::textArea('pregunta',null,['class'=>'form-control','placeholder'=>'Escribe tus dudas aquí!','required']) !!}
+    {!! Form::submit('Andale, a preguntar pues iiija!',['class'=>' btn-default btn-lg'])!!}
+    {!! Form::close() !!}
+
+<div>
+    @include ('flash::message')
+    @if($hospedaje->preguntas->count()==0)
+        {!! 'No se han realizado preguntas para este hospedaje, se el primero!' !!}
+    @else
+
+
+
+        <li><div>Preguntas
+        @foreach($hospedaje->preguntas as $p)
+
+
+             <ul>
+            {!! $p->pregunta !!}
+             </ul>
+
+
+        @endforeach
+            </div>
+        </li>
+    @endif
+
+ </div>
 @endsection
 
 @section('js')

@@ -105,6 +105,10 @@ Route::group(['prefix'=> 'usuario'],function(){
         'as'=>'usuario.hospedaje.reservar'
     ]);
 
+    Route::post('hospedaje/{id}/preguntar',[
+        'uses' => 'HospedajeControlador@preguntar',
+        'as' =>'usuario.hospedaje.preguntar'
+    ]);
 });
 
 //Route::group(['prefix'=> 'home'],function(){
